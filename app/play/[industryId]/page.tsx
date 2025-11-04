@@ -9,6 +9,7 @@ import EndScreen from "@/components/end-screen"
 import LearnModal from "@/components/learn-modal"
 import Toast from "@/components/toast"
 import NarrationScreen from "@/components/narration-screen"
+import StartupLoading from "@/components/startup-loading"
 
 export default function PlayPage() {
   const params = useParams()
@@ -26,9 +27,10 @@ export default function PlayPage() {
     effects?: { profit?: number; trust?: number; power?: number };
   }>({ show: false });
   const [showPrologue, setShowPrologue] = useState(false);
-
+  const [booting, setBooting] = useState(false);      
   const playerName = typeof window !== "undefined" ? localStorage.getItem("playerName") : null
   type Effects = { profit?: number; trust?: number; power?: number }
+  
 
   function effectColor(label: "profit" | "trust" | "power", v: number) {
     if (v > 0) return {
@@ -141,14 +143,39 @@ export default function PlayPage() {
   const handlePrologueDone = () => {
     const seenKey = `prologueSeen:${industryId}`;
     localStorage.setItem(seenKey, "1");
+    // ✅ reset tiến trình của industry hiện tại
+    resetProgress(industryId);
+    if (story) {
+      setGameState({
+        industryId,
+        currentStageId: story.stages[0].id,
+        stats: { ...story.initial_stats },
+        flags: [],
+        endingId: undefined, // ✅ xoá ending nếu có
+      });
+    }
     setShowPrologue(false);
+    setBooting(true);
   };
 
   const handlePrologueSkip = () => {
     const seenKey = `prologueSeen:${industryId}`;
     localStorage.setItem(seenKey, "1");
+    // ✅ reset như trên
+    resetProgress(industryId);
+    if (story) {
+      setGameState({
+        industryId,
+        currentStageId: story.stages[0].id,
+        stats: { ...story.initial_stats },
+        flags: [],
+        endingId: undefined,
+      });
+    }
     setShowPrologue(false);
+    setBooting(true);
   };
+
   const handleChoice = (choice: Choice) => {
     if (!gameState || !story) return
 
@@ -260,6 +287,10 @@ export default function PlayPage() {
   };
 
   const handleHome = () => {
+    try { localStorage.removeItem(`progress:${industryId}`) } catch {}
+    try { localStorage.removeItem(`prologueSeen:${industryId}`) } catch {}
+    setShowPrologue(false);
+    setBooting(false);
     resetAllProgress();
     router.push("/")
   }
@@ -318,6 +349,7 @@ export default function PlayPage() {
       />
     );
   }
+
 
   const isGameEnd = !!gameState.endingId
   const ending = isGameEnd ? story.endings.find((e) => e.id === gameState.endingId) : null
@@ -497,6 +529,13 @@ export default function PlayPage() {
           <EndScreen ending={ending} stats={gameState.stats} onPlayAgain={handleReset} />
         ) : null}
       </div>
+
+      {booting && (
+        <StartupLoading
+          delayMs={5000}
+          onDone={() => setBooting(false)}
+        />
+      )}
 
       {toast.show && <Toast message={toast.message} />}
       {learnModal.show && (
