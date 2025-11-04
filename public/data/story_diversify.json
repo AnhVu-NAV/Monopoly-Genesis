@@ -1,0 +1,561 @@
+{
+  "schema_version": "1.1",
+  "industry_id": "diversify",
+  "name": "🌍 Đa Ngành – Siêu Tập Đoàn",
+  "intro": "Bạn không chỉ muốn làm 1 ngành. Bạn muốn sở hữu nhiều ngành cùng lúc. Mục tiêu cuối cùng: dựng nên 1 siêu tập đoàn đa lõi với quyền lực vượt biên giới quốc gia.",
+  "initial_stats": { "profit": 35, "trust": 55, "power": 30 },
+  "prologue": {
+    "title": "Tham vọng nhiều lõi",
+    "paragraphs": [
+      "Một ngành là chưa đủ. Bạn dựng nên những trụ cột mới: năng lượng, tài chính, công nghệ, bán lẻ.",
+      "Sức mạnh đến từ hiệp đồng — hoặc sụp đổ dây chuyền.",
+      "Bạn sẽ dệt liên minh, thâu tóm, hay mở tiêu chuẩn chung? Siêu tập đoàn sinh ra từ kỷ luật hay khát vọng?"
+    ],
+    "audio": [
+      "/data/audio/diversify/p0.mp3",
+      "/data/audio/diversify/p1.mp3",
+      "/data/audio/diversify/p2.mp3"
+    ]
+  },
+  "stages": [
+    {
+      "id": "d1",
+      "title": "Hạt Giống Tập Đoàn",
+      "narrative": "Bạn khởi nguồn từ một mảng cốt lõi mạnh (ví dụ: bán lẻ/viễn thông). Câu hỏi: Mở rộng thế nào để đặt viên gạch đầu tiên cho siêu tập đoàn?",
+      "mood": "temptation",
+      "image_prompt": "Founder's office with multiple industry icons on glass wall: retail, telecom, energy, finance; sunrise lighting; strategic moodboard",
+      "choices": [
+        {
+          "id": "d1c1",
+          "label": "Mua lại chuỗi logistics để khép kín chuỗi giá trị",
+          "result_text": "✓ Biên lợi nhuận cải thiện, kiểm soát vận hành.",
+          "effects": { "profit": 15, "trust": -5, "power": 10 },
+          "emotion": "ambition",
+          "setFlags": ["VERTICAL_SYNERGY"],
+          "next": "d2_ops",
+          "learn": "Tích Hợp Dọc: Kiểm soát đầu-cuối giảm chi phí và phụ thuộc."
+        },
+        {
+          "id": "d1c2",
+          "label": "Liên doanh fintech – phát hành ví điện tử, điểm thưởng",
+          "result_text": "✓ Tăng tần suất mua và dữ liệu khách hàng.",
+          "effects": { "profit": 10, "trust": 5, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["DATA_LOOP", "FINTECH"],
+          "next": "d2_data"
+        },
+        {
+          "id": "d1c3",
+          "label": "Nhảy ngay vào năng lượng/điện gió – vốn lớn rủi ro cao",
+          "result_text": "✓ Hào quang táo bạo, nhưng đòn bẩy tăng.",
+          "effects": { "profit": 12, "trust": 8, "power": 12 },
+          "emotion": "ambition",
+          "setFlags": ["CAPEX_HEAVY", "GREEN_PIVOT"],
+          "next": "d2_capital"
+        },
+        {
+          "id": "d1c4",
+          "label": "Mua media để kiểm soát diễn ngôn",
+          "result_text": "✓ Ảnh hưởng dư luận tăng mạnh.",
+          "effects": { "profit": 5, "trust": -10, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["MEDIA_ARM"],
+          "next": "d2_influence",
+          "learn": "Cánh Tay Truyền Thông: Duy trì hình ảnh và che sốc thông tin."
+        }
+      ]
+    },
+
+    {
+      "id": "d2_ops",
+      "title": "Xưởng Máy Vận Hành",
+      "narrative": "Chuỗi logistics vừa thâu tóm cần tái cấu trúc. Bạn ưu tiên điều gì?",
+      "mood": "corruption",
+      "image_prompt": "Automated warehouses with conveyors, screens showing route optimization; cold blue lighting",
+      "choices": [
+        {
+          "id": "d2o1",
+          "label": "Cắt giảm mạnh nhân sự – tối ưu chi phí ngay",
+          "result_text": "✓ Lãi nhanh nhưng tiếng xấu dâng cao.",
+          "effects": { "profit": 20, "trust": -20, "power": 10 },
+          "emotion": "greed",
+          "setFlags": ["COST_KILLER"],
+          "next_if": [{ "max_trust": 35, "next": "d2_labor_backlash" }],
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2o2",
+          "label": "Đầu tư tự động hóa + đào tạo lại",
+          "result_text": "✓ Năng suất tăng, mô hình bền vững.",
+          "effects": { "profit": 12, "trust": 12, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["LEAN_TECH"],
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2o3",
+          "label": "Bán tài sản cũ – giữ lõi công nghệ",
+          "result_text": "✓ Nhẹ vốn, tập trung giá trị lõi.",
+          "effects": { "profit": 10, "trust": 5, "power": 5 },
+          "emotion": "ambition",
+          "setFlags": ["ASSET_LIGHT"],
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2o4",
+          "label": "Dùng logistics để chèn ép đối thủ nhỏ",
+          "result_text": "✓ Giành thị phần nhanh, rủi ro pháp lý.",
+          "effects": { "profit": 18, "trust": -15, "power": 12 },
+          "emotion": "greed",
+          "setFlags": ["PREDATORY_PRICING"],
+          "next": "d3_matrix"
+        }
+      ]
+    },
+    {
+      "id": "d2_labor_backlash",
+      "title": "Phản Ứng Lao Động",
+      "narrative": "Đình công nổ ra tại các kho. Báo chí đưa tin tiêu cực.",
+      "mood": "crisis",
+      "choices": [
+        {
+          "id": "d2lb1",
+          "label": "Nhượng bộ lương + phúc lợi",
+          "result_text": "Hòa nhiệt nhưng biên lợi nhuận co lại.",
+          "effects": { "profit": -10, "trust": 15, "power": -5 },
+          "emotion": "hope",
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2lb2",
+          "label": "Cứng rắn – thuê ngoài và tự động hóa gấp",
+          "result_text": "Chuỗi chạy lại, nhưng hình ảnh rạn nứt.",
+          "effects": { "profit": 12, "trust": -20, "power": 10 },
+          "emotion": "fear",
+          "next": "d3_matrix"
+        }
+      ]
+    },
+
+    {
+      "id": "d2_data",
+      "title": "Vòng Lặp Dữ Liệu",
+      "narrative": "Fintech mở ra kho dữ liệu người dùng đa ngành. Bạn sẽ dùng nó thế nào?",
+      "mood": "temptation",
+      "image_prompt": "Holographic data loop connecting retail, finance, telecom; dashboards with heatmaps",
+      "choices": [
+        {
+          "id": "d2d1",
+          "label": "Phân tích nâng trải nghiệm – minh bạch quyền riêng tư",
+          "result_text": "✓ Lòng trung thành tăng.",
+          "effects": { "profit": 10, "trust": 15, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["ETHICAL_DATA"],
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2d2",
+          "label": "Bán quảng cáo chéo mạnh tay",
+          "result_text": "✓ Doanh thu bùng nổ, rủi ro bị soi.",
+          "effects": { "profit": 20, "trust": -10, "power": 12 },
+          "emotion": "greed",
+          "setFlags": ["AD_ENGINE"],
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2d3",
+          "label": "Dựng tường dữ liệu – độc quyền truy cập",
+          "result_text": "✓ Tạo rào cản cạnh tranh.",
+          "effects": { "profit": 12, "trust": -5, "power": 15 },
+          "emotion": "ambition",
+          "setFlags": ["DATA_MOAT"],
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2d4",
+          "label": "Mở API có kiểm soát – hệ sinh thái đối tác",
+          "result_text": "✓ Hệ sinh thái phát triển, bạn ở trung tâm.",
+          "effects": { "profit": 10, "trust": 10, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["OPEN_ECOSYSTEM"],
+          "next": "d3_matrix"
+        }
+      ]
+    },
+
+    {
+      "id": "d2_capital",
+      "title": "Cơn Khát Vốn",
+      "narrative": "Các dự án CAPEX lớn ngốn tiền. Lựa chọn cấu trúc vốn?",
+      "mood": "corruption",
+      "image_prompt": "Boardroom with debt/equity sliders on a large screen; bankers and lawyers negotiating",
+      "choices": [
+        {
+          "id": "d2c1",
+          "label": "Đòn bẩy nợ tối đa – lãi suất ưu đãi",
+          "result_text": "✓ Mở rộng nhanh, rủi ro thanh khoản.",
+          "effects": { "profit": 20, "trust": -5, "power": 15 },
+          "emotion": "ambition",
+          "setFlags": ["HIGH_LEVERAGE"],
+          "next_if": [
+            {
+              "requireFlags": ["MEDIA_ARM"],
+              "max_trust": 35,
+              "next": "d2_rating_probe"
+            }
+          ],
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2c2",
+          "label": "P/E tư nhân – đổi quyền kiểm soát",
+          "result_text": "✓ Có tiền nhưng chịu KPI lợi nhuận quý.",
+          "effects": { "profit": 18, "trust": -10, "power": 12 },
+          "emotion": "greed",
+          "setFlags": ["PE_CONTROL"],
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2c3",
+          "label": "IPO từng mảng – holding ở trên",
+          "result_text": "✓ Minh bạch hơn, tối ưu thuế cấu trúc.",
+          "effects": { "profit": 12, "trust": 12, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["HOLDING_STRUCTURE"],
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2c4",
+          "label": "Hợp tác nhà nước – ưu đãi hạ tầng",
+          "result_text": "✓ Ưu thế đất/điện/nước, rủi ro quan hệ-chính trị.",
+          "effects": { "profit": 15, "trust": -5, "power": 18 },
+          "emotion": "ambition",
+          "setFlags": ["STATE_TIES"],
+          "next": "d3_matrix"
+        }
+      ]
+    },
+    {
+      "id": "d2_rating_probe",
+      "title": "Hãng Xếp Hạng Dòm Ngó",
+      "narrative": "Tin đồn về đòn bẩy quá mức. Truy vấn xếp hạng nợ xuất hiện.",
+      "mood": "crisis",
+      "choices": [
+        {
+          "id": "d2rp1",
+          "label": "Công bố số liệu minh bạch + bán tài sản không cốt lõi",
+          "result_text": "Giảm áp, giữ hạng.",
+          "effects": { "profit": -5, "trust": 15, "power": -5 },
+          "emotion": "hope",
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2rp2",
+          "label": "Spin-doctor qua media của bạn",
+          "result_text": "Hạ nhiệt ngắn hạn, rủi ro dài hạn.",
+          "effects": { "profit": 5, "trust": -10, "power": 10 },
+          "emotion": "greed",
+          "next": "d3_matrix"
+        }
+      ]
+    },
+
+    {
+      "id": "d2_influence",
+      "title": "Đòn Bẩy Ảnh Hưởng",
+      "narrative": "Media trong tay giúp bạn định hướng dư luận. Nhưng sử dụng đến mức nào?",
+      "mood": "temptation",
+      "image_prompt": "Newsroom screens showing headlines favorable to conglomerate; subtle manipulation vibe",
+      "choices": [
+        {
+          "id": "d2i1",
+          "label": "Giữ tiêu chuẩn biên tập – tín nhiệm trước",
+          "result_text": "✓ Niềm tin công chúng tăng.",
+          "effects": { "profit": 5, "trust": 15, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["ETHICAL_MEDIA"],
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2i2",
+          "label": "Đẩy PR cho các mảng lỗ – đánh bóng báo cáo",
+          "result_text": "✓ Hợp thức hóa đầu tư, rủi ro khi bị bóc.",
+          "effects": { "profit": 10, "trust": -10, "power": 12 },
+          "emotion": "greed",
+          "setFlags": ["PR_SPIN"],
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2i3",
+          "label": "Tấn công đối thủ trên truyền thông",
+          "result_text": "✓ Đối thủ suy yếu, pháp lý rình rập.",
+          "effects": { "profit": 10, "trust": -15, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["MEDIA_SABOTAGE"],
+          "next": "d3_matrix"
+        },
+        {
+          "id": "d2i4",
+          "label": "Mở nền tảng media cho hệ sinh thái startup",
+          "result_text": "✓ Trung tâm đổi mới, dòng giao dịch dày.",
+          "effects": { "profit": 10, "trust": 10, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["MEDIA_PLATFORM"],
+          "next": "d3_matrix"
+        }
+      ]
+    },
+
+    {
+      "id": "d3_matrix",
+      "title": "Ma Trận Ngành",
+      "narrative": "Bạn đã chạm đến 3–5 mảng: logistics, fintech, năng lượng, media, bán lẻ… Tiếp theo, xây ‘thế giới trong thế giới’.",
+      "mood": "ambition",
+      "image_prompt": "Map of interconnected business units with arrows of capital and data flows; glowing network",
+      "choices": [
+        {
+          "id": "d3m1",
+          "label": "Thâu tóm hạ tầng công – cảng, điện, nước",
+          "result_text": "✓ Quyền lực cơ sở hạ tầng.",
+          "effects": { "profit": 20, "trust": -10, "power": 25 },
+          "emotion": "greed",
+          "setFlags": ["INFRA_PPP"],
+          "next_if": [{ "max_trust": 30, "next": "d3_antitrust" }],
+          "next": "d4_global"
+        },
+        {
+          "id": "d3m2",
+          "label": "Mở rộng khu vực – từng quốc gia một",
+          "result_text": "✓ Đa dạng rủi ro pháp lý.",
+          "effects": { "profit": 15, "trust": 5, "power": 18 },
+          "emotion": "ambition",
+          "setFlags": ["REGIONAL_PLAY"],
+          "next": "d4_global"
+        },
+        {
+          "id": "d3m3",
+          "label": "Dựng ‘siêu app’ gom dịch vụ",
+          "result_text": "✓ Tăng giữ chân, rủi ro dữ liệu.",
+          "effects": { "profit": 12, "trust": -5, "power": 20 },
+          "emotion": "ambition",
+          "setFlags": ["SUPER_APP"],
+          "next": "d4_global"
+        },
+        {
+          "id": "d3m4",
+          "label": "Trọng tâm ESG – biến xanh thành lợi thế",
+          "result_text": "✓ Rẻ vốn, cao uy tín.",
+          "effects": { "profit": 10, "trust": 15, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["TRUE_ESG"],
+          "next": "d4_global"
+        }
+      ]
+    },
+    {
+      "id": "d3_antitrust",
+      "title": "Gọng Kìm Chống Độc Quyền",
+      "narrative": "Cơ quan quản lý mở điều tra sự tập trung quyền lực đa ngành.",
+      "mood": "crisis",
+      "choices": [
+        {
+          "id": "d3a1",
+          "label": "Tự nguyện tách một mảng",
+          "result_text": "Giảm áp lực, giữ đà tăng trưởng.",
+          "effects": { "profit": -10, "trust": 15, "power": -10 },
+          "emotion": "hope",
+          "next": "d4_global"
+        },
+        {
+          "id": "d3a2",
+          "label": "Kiện ngược – vận động hành lang",
+          "result_text": "Trì hoãn, hao tổn niềm tin.",
+          "effects": { "profit": -5, "trust": -15, "power": 10 },
+          "emotion": "fear",
+          "next": "d4_global"
+        }
+      ]
+    },
+
+    {
+      "id": "d4_global",
+      "title": "Bước Ra Toàn Cầu",
+      "narrative": "Bạn đối mặt khác biệt luật pháp, văn hóa và chuỗi cung ứng quốc tế.",
+      "mood": "temptation",
+      "image_prompt": "Global map with pins on ports, data centers, distribution hubs; compliance checklists on the side",
+      "choices": [
+        {
+          "id": "d4g1",
+          "label": "Đặt trung tâm dữ liệu và kho tại các nước dễ ưu đãi",
+          "result_text": "✓ Thuế thấp, nghi ngờ tăng.",
+          "effects": { "profit": 20, "trust": -10, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["REGULATORY_ARBITRAGE"],
+          "next_if": [
+            {
+              "requireFlags": ["SUPER_APP", "DATA_MOAT"],
+              "max_trust": 30,
+              "next": "d4_data_ban"
+            }
+          ],
+          "next": "d5_fate"
+        },
+        {
+          "id": "d4g2",
+          "label": "Đi theo chuẩn cao – GDPR/ESG/thuế tối thiểu",
+          "result_text": "✓ Bền vững, chậm hơn.",
+          "effects": { "profit": 8, "trust": 18, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["GLOBAL_COMPLIANCE"],
+          "next": "d5_fate"
+        },
+        {
+          "id": "d4g3",
+          "label": "Liên minh với tập đoàn bản địa",
+          "result_text": "✓ Cửa mở, chia sẻ quyền lực.",
+          "effects": { "profit": 12, "trust": 10, "power": 12 },
+          "emotion": "ambition",
+          "setFlags": ["LOCAL_ALLIANCE"],
+          "next": "d5_fate"
+        },
+        {
+          "id": "d4g4",
+          "label": "Mua tài sản distressed – gom rẻ lúc khủng hoảng",
+          "result_text": "✓ Tài sản tốt giá rẻ, rủi ro nợ.",
+          "effects": { "profit": 18, "trust": -5, "power": 18 },
+          "emotion": "greed",
+          "setFlags": ["DISTRESSED_MA"],
+          "next": "d5_fate"
+        }
+      ]
+    },
+    {
+      "id": "d4_data_ban",
+      "title": "Phong Tỏa Dữ Liệu",
+      "narrative": "Một khối thị trường cấm dòng dữ liệu từ hệ sinh thái của bạn.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "d4db1",
+          "label": "Chia cụm dữ liệu – localization triệt để",
+          "result_text": "Hệ thống phức tạp hơn nhưng tuân thủ.",
+          "effects": { "profit": -10, "trust": 15, "power": -5 },
+          "emotion": "hope",
+          "next": "d5_fate"
+        },
+        {
+          "id": "d4db2",
+          "label": "Vận động chính sách + kiện tụng",
+          "result_text": "Cửa hẹp, tốn kém.",
+          "effects": { "profit": -15, "trust": -10, "power": 5 },
+          "emotion": "despair",
+          "next": "d5_fate"
+        }
+      ]
+    },
+
+    {
+      "id": "d5_fate",
+      "title": "Định Hình Số Phận",
+      "narrative": "Tất cả sợi dây vốn, dữ liệu, hạ tầng và truyền thông đã bện chặt. Bạn chọn lối đi nào cho siêu tập đoàn?",
+      "mood": "ambition",
+      "image_prompt": "CEO overlooking interconnected empire at night; balanced scales of ethics vs power glowing",
+      "choices": [
+        {
+          "id": "d5f1",
+          "label": "Tập trung quyền lực – sở hữu hạ tầng sống còn",
+          "result_text": "✓ Đỉnh kim tự tháp quyền lực.",
+          "effects": { "profit": 25, "trust": -25, "power": 35 },
+          "emotion": "greed",
+          "ending": "empire_conglomerate"
+        },
+        {
+          "id": "d5f2",
+          "label": "Chuẩn hóa quản trị + ESG thật sự",
+          "result_text": "✓ Uy tín toàn cầu, vốn rẻ dài hạn.",
+          "effects": { "profit": 12, "trust": 30, "power": 15 },
+          "emotion": "hope",
+          "ending": "ethical_holdings"
+        },
+        {
+          "id": "d5f3",
+          "label": "Quay xe – bán bớt mảng, trả nợ, tinh gọn",
+          "result_text": "✓ Vững chắc, ít hào nhoáng.",
+          "effects": { "profit": 5, "trust": 20, "power": -10 },
+          "emotion": "hope",
+          "ending": "prudence_return"
+        },
+        {
+          "id": "d5f4",
+          "label": "Bán đỉnh – dù vàng cá nhân",
+          "result_text": "✓ Bạn rời cuộc chơi ở đỉnh cao.",
+          "effects": { "profit": 999, "trust": 0, "power": -50 },
+          "emotion": "greed",
+          "ending": "golden_parachute"
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "empire_conglomerate",
+      "title": "🏛️ Siêu Tập Đoàn Đế Chế",
+      "text": "Bạn kiểm soát logistics, dữ liệu, media và hạ tầng trọng yếu. Chính phủ và doanh nghiệp phụ thuộc vào đường ống của bạn.",
+      "conditions": { "min_profit": 85, "min_power": 80, "max_trust": 40 }
+    },
+    {
+      "id": "ethical_holdings",
+      "title": "🛡️ Holding Đạo Đức",
+      "text": "Bạn chứng minh mô hình đa ngành có thể minh bạch, tuân thủ và bền vững – vẫn có lãi và được tôn trọng.",
+      "conditions": { "min_trust": 80, "min_profit": 60 }
+    },
+    {
+      "id": "prudence_return",
+      "title": "⚖️ Trở Về Thận Trọng",
+      "text": "Bạn giảm độ phức tạp, chấm dứt ‘đế chế hóa’. Hệ sinh thái nhỏ hơn nhưng khỏe và linh hoạt.",
+      "conditions": { "min_trust": 65, "max_power": 50 }
+    },
+    {
+      "id": "golden_parachute",
+      "title": "💰 Dù Vàng",
+      "text": "Bạn bán đỉnh – túi tiền đầy, bàn giao một mê cung doanh nghiệp cho người kế nhiệm.",
+      "conditions": { "min_profit": 80, "max_power": 25 }
+    },
+    {
+      "id": "antitrust_breakup",
+      "title": "⚖️ Chia Tách Chống Độc Quyền",
+      "text": "Đi quá xa, bạn bị ép tách. Giá trị còn, quyền lực mất.",
+      "conditions": { "max_power": 40, "min_trust": 50 }
+    },
+    {
+      "id": "debt_collapse",
+      "title": "📉 Gục Ngã Vì Nợ",
+      "text": "Đòn bẩy quá mức, thanh khoản khô cạn. Chuỗi domino tài sản sụp đổ.",
+      "conditions": { "max_trust": 35, "max_profit": 25 }
+    },
+    {
+      "id": "green_champion",
+      "title": "🌱 Nhà Vô Địch Xanh",
+      "text": "Bạn chứng minh chuyển dịch xanh là lợi thế cạnh tranh cứng và là kênh vốn giá rẻ dài hạn.",
+      "conditions": { "min_trust": 75, "min_profit": 55 }
+    },
+    {
+      "id": "crony_state",
+      "title": "🏗️ Liên Minh Quyền Lực",
+      "text": "Quan hệ–chính trị mở khóa ưu đãi hạ tầng. Lợi nhuận lớn, nhưng niềm tin mong manh.",
+      "conditions": { "min_profit": 75, "max_trust": 45 }
+    },
+    {
+      "id": "failed_synergy",
+      "title": "🧩 Hiệp Lực Ảo",
+      "text": "Ma trận trở nên cồng kềnh, ‘hiệp lực’ không đến. Burn rate vượt kế hoạch.",
+      "conditions": { "max_profit": 30, "max_power": 45 }
+    },
+    {
+      "id": "media_pariah",
+      "title": "📺 Kẻ Bị Ghét Trên Sóng",
+      "text": "Truyền thông thiên vị bị phanh phui. Người dùng và nhà quảng cáo quay lưng.",
+      "conditions": { "max_trust": 20, "max_profit": 50 }
+    }
+  ]
+}

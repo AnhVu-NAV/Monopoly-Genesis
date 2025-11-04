@@ -1,0 +1,730 @@
+{
+  "schema_version": "1.1",
+  "industry_id": "pharma",
+  "name": "💊 Ngành Dược Phẩm - Độc Quyền Sáng Chế",
+  "intro": "Bạn vừa phát minh một loại thuốc đột phá. Bây giờ đến lúc lựa chọn: khoa học mở hay độc quyền độc lập?",
+  "initial_stats": { "profit": 40, "trust": 60, "power": 25 },
+  "prologue": {
+    "title": "Liều thuốc và lời thề",
+    "paragraphs": [
+      "Trong phòng thí nghiệm lặng gió, bạn tìm ra hợp chất có thể đổi thay số phận hàng triệu người.",
+      "Bằng sáng chế mở ra cánh cửa quyền lực — nhưng cũng dựng lên bức tường giá.",
+      "Bạn chọn cứu người bằng mọi giá, hay cứu công ty bằng mọi giá? Lịch sử sẽ ghi tên bạn theo cách bạn chọn."
+    ],
+    "audio": [
+      "/data/audio/pharma/p0.mp3",
+      "/data/audio/pharma/p1.mp3",
+      "/data/audio/pharma/p2.mp3"
+    ]
+  },
+  "stages": [
+    {
+      "id": "p1",
+      "title": "Khởi Nghiệp và Bằng Sáng Chế",
+      "narrative": "Lab của bạn phát minh ra một loại thuốc điều trị hiếm gặp. Bạn có thể đăng ký bằng sáng chế độc quyền hoặc chia sẻ công thức với đối tác.",
+      "mood": "temptation",
+      "image_prompt": "Laboratory with researcher holding breakthrough medicine vial, scientific papers and patents scattered, hopeful lighting, medical aesthetic",
+      "choices": [
+        {
+          "id": "p1c1",
+          "label": "Đăng ký bằng sáng chế độc quyền",
+          "result_text": "✓ Bằng sáng chế được cấp. Bạn là nhà sản xuất duy nhất.",
+          "effects": { "profit": 20, "trust": -15, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["PATENT_MONOPOLY"],
+          "next": "p2a",
+          "learn": "Độc Quyền Sáng Chế: Bằng sáng chế tạo ra tình trạng khan hiếm nhân tạo, cho phép định giá độc quyền cho các hàng hóa thiết yếu."
+        },
+        {
+          "id": "p1c2",
+          "label": "Chia sẻ công thức cho đối tác để tiếp cận rộng",
+          "result_text": "✓ Thế giới mừng rỡ. Bạn kiếm từ doanh số, không độc quyền.",
+          "effects": { "trust": 20, "profit": 5, "power": -5 },
+          "emotion": "hope",
+          "setFlags": ["OPEN_SCIENCE"],
+          "next": "p2b",
+          "learn": "Khoa Học Mở: Chia sẻ kiến thức tự nguyện làm giảm quyền lực độc quyền nhưng tăng niềm tin xã hội."
+        },
+        {
+          "id": "p1c3",
+          "label": "Bí mật bán bằng sáng chế cho công ty dược lớn",
+          "result_text": "✓ Bạn kiếm tiền lớn từ việc bán bằng sáng chế.",
+          "effects": { "profit": 35, "trust": -20, "power": 10 },
+          "emotion": "greed",
+          "setFlags": ["PATENT_SOLD"],
+          "next": "p2c",
+          "learn": "Kinh Doanh Sáng Chế: Bán bằng sáng chế cho công ty độc quyền."
+        },
+        {
+          "id": "p1c4",
+          "label": "Đăng ký bằng sáng chế nhưng cấp phép giá rẻ cho các nước nghèo",
+          "result_text": "✓ Bạn kiếm lợi nhuận nhưng cứu sống hàng triệu.",
+          "effects": { "trust": 15, "profit": 15, "power": 5 },
+          "emotion": "ambition",
+          "setFlags": ["TIERED_LICENSING"],
+          "next": "p2d",
+          "learn": "Cấp Phép Phân Cấp: Giữ bằng sáng chế nhưng cấp phép theo giá thị trường địa phương."
+        }
+      ]
+    },
+    {
+      "id": "p2a",
+      "title": "Độc Quyền Sáng Chế Toàn Cầu",
+      "narrative": "Bằng sáng chế của bạn được công nhận toàn cầu. Bạn có thể nâng giá thuốc tùy ý. Nhưng cơ quan quản lý bắt đầu giám sát.",
+      "mood": "corruption",
+      "image_prompt": "Pharmaceutical factory with soaring stock charts, piles of money, newspapers with headlines about drug price increases, tension in atmosphere",
+      "choices": [
+        {
+          "id": "p2a1",
+          "label": "Nâng giá thuốc độc quyền tối đa",
+          "result_text": "✓ Lợi nhuận khổng lồ nhưng hàng triệu không thể mua.",
+          "effects": { "profit": 35, "trust": -30, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["PRICE_GOUGING"],
+          "next_if": [{ "max_trust": 20, "next": "p2a_scandal" }],
+          "next": "p3a",
+          "learn": "Định Giá Độc Quyền: Không có cạnh tranh, độc quyền trích xuất tối đa lợi thế kinh tế."
+        },
+        {
+          "id": "p2a2",
+          "label": "Giữ giá cạnh tranh - cạnh tranh bằng công nghệ",
+          "result_text": "✓ Bạn kiếm tiền từ đổi mới, không giá độc quyền.",
+          "effects": { "trust": 20, "profit": 10, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["INNOVATION_COMPETE"],
+          "next": "p3b",
+          "learn": "Cạnh Tranh Đổi Mới: Kiếm tiền từ nhanh chóng, không độc quyền giá."
+        },
+        {
+          "id": "p2a3",
+          "label": "Hợp tác với chính phủ - tiếp cận công bằng giá",
+          "result_text": "✓ Chính phủ mua với giá hợp lý, bạn vẫn kiếm lợi nhuận.",
+          "effects": { "trust": 15, "profit": 20, "power": 10 },
+          "emotion": "ambition",
+          "setFlags": ["GOV_NEGOTIATED"],
+          "next": "p3c",
+          "learn": "Hợp Tác Công Khai: Chính phủ đàm phán giá công bằng."
+        },
+        {
+          "id": "p2a4",
+          "label": "Mua bằng sáng chế cạnh tranh - loại bỏ đối thủ",
+          "result_text": "✓ Bạn mua tất cả bằng sáng chế tương tự.",
+          "effects": { "profit": 25, "trust": -15, "power": 20 },
+          "emotion": "greed",
+          "setFlags": ["PATENT_HOARDING"],
+          "next": "p3d",
+          "learn": "Sàn Lăng Bằng Sáng Chế: Mua bằng sáng chế chỉ để tống tiễu."
+        }
+      ]
+    },
+    {
+      "id": "p2a_scandal",
+      "title": "Bê Bối Giá Thuốc",
+      "narrative": "Báo chí phơi bày bạn nâng giá 1000%. Bệnh nhân thiệt mạng vì không mua được. Phương truyền thông lớn.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "p2a_scan1",
+          "label": "Xin lỗi công khai - hạ giá ngay lập tức",
+          "result_text": "Bạn cứu vãn được tin tưởng nhưng lợi nhuận giảm.",
+          "effects": { "profit": -20, "trust": 25, "power": -10 },
+          "next": "p3c",
+          "emotion": "hope"
+        },
+        {
+          "id": "p2a_scan2",
+          "label": "Chối bỏ trách nhiệm - đổ lỗi cho bệnh nhân",
+          "result_text": "Bạn mất tất cả lòng tin. Tẩy chay toàn cầu.",
+          "effects": { "profit": -40, "trust": -50, "power": -20 },
+          "ending": "pharma_pariah",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "p2b",
+      "title": "Khoa Học Mở - Cạnh Tranh Công Bằng",
+      "narrative": "Nhiều công ty sản xuất thuốc của bạn. Giá cạnh tranh nhưng bạn vẫn kiếm lợi nhuận. Thế giới cảm ơn.",
+      "mood": "temptation",
+      "image_prompt": "Multiple pharmaceutical companies in competition, affordable medicine reaching diverse populations, hopeful and healthy community imagery",
+      "choices": [
+        {
+          "id": "p2b1",
+          "label": "Duy trì khoa học mở - sâu hơn vào nghiên cứu",
+          "result_text": "✓ Bạn trở thành nhà lãnh đạo đổi mới.",
+          "effects": { "trust": 25, "profit": 15, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["OPEN_RESEARCH"],
+          "next": "p3b",
+          "learn": "Nghiên Cứu Mở: Tiếp tục đổi mới mà không độc quyền."
+        },
+        {
+          "id": "p2b2",
+          "label": "Nâng giá từ từ - chiếm lĩnh thị trường",
+          "result_text": "✓ Bạn bắt đầu tăng giá khi đối thủ rơi",
+          "effects": { "profit": 20, "trust": -20, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["GRADUAL_MONOPOLY"],
+          "next": "p3a",
+          "learn": "Độc Quyền Dần Dần: Tăng giá từ từ khi cạnh tranh yếu."
+        },
+        {
+          "id": "p2b3",
+          "label": "Liên minh với các công ty khác - cartel giá",
+          "result_text": "✓ Bạn kết hợp với đối thủ kiểm soát giá.",
+          "effects": { "profit": 30, "trust": -30, "power": 20 },
+          "emotion": "greed",
+          "setFlags": ["PRICE_CARTEL"],
+          "next_if": [{ "max_trust": 25, "next": "p2b_cartel_caught" }],
+          "next": "p3d",
+          "learn": "Cartel Giá: Các công ty bí mật thỏa thuận giá cao."
+        },
+        {
+          "id": "p2b4",
+          "label": "Chuyên tâm vào thị trường khác - chinh phục các bệnh hiếm gặp",
+          "result_text": "✓ Bạn chuyên doanh độc quyền thuốc hiếm gặp.",
+          "effects": { "trust": 10, "profit": 25, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["RARE_DISEASE_FOCUS"],
+          "next": "p3d",
+          "learn": "Bệnh Hiếm Gặp: Kiếm tiền từ bệnh độc quyền hiếm."
+        }
+      ]
+    },
+    {
+      "id": "p2b_cartel_caught",
+      "title": "Cartel Bị Phát Hiện",
+      "narrative": "Cơ quan quản lý bắt được thỏa thuận giá. Bạn đối mặt với phạt tỷ.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "p2b_cart1",
+          "label": "Chấp nhận phạt",
+          "result_text": "Bạn trả bồi thường nhưng thoát khỏi tù.",
+          "effects": { "profit": -30, "trust": -15, "power": -15 },
+          "next": "p3c",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "p2c",
+      "title": "Công Ty Con Big Pharma",
+      "narrative": "Bạn được sáp nhập vào Big Pharma. Bây giờ bạn là một phần của máy kiếm tiền toàn cầu.",
+      "mood": "corruption",
+      "image_prompt": "Large pharmaceutical corporation headquarters, CEO in meeting with board, corporate logos merging, sterile corporate environment",
+      "choices": [
+        {
+          "id": "p2c1",
+          "label": "Tuân theo - tối đa hóa lợi nhuận",
+          "result_text": "✓ Bạn kiếm tiền khổng lồ nhưng mất tâm lý.",
+          "effects": { "profit": 40, "trust": -30, "power": 20 },
+          "emotion": "greed",
+          "setFlags": ["CORPORATE_CONTROLLED"],
+          "next": "p3a",
+          "learn": "Công Ty Con: Mất độc lập, nhưng kiếm nhiều tiền."
+        },
+        {
+          "id": "p2c2",
+          "label": "Cản trở tối đa hóa lợi nhuận - đạo đức",
+          "result_text": "✓ Bạn nổi loạn từ bên trong.",
+          "effects": { "trust": 10, "profit": 10, "power": -5 },
+          "emotion": "hope",
+          "setFlags": ["INTERNAL_RESISTANCE"],
+          "next": "p3b",
+          "learn": "Nổi Loạn Nội Bộ: Chống lại chủ đạo từ bên trong."
+        },
+        {
+          "id": "p2c3",
+          "label": "Xây dựng bộ phận nghiên cứu độc lập bên dưới",
+          "result_text": "✓ Bạn giữ bộ phận cũ để đổi mới.",
+          "effects": { "trust": 15, "profit": 20, "power": 10 },
+          "emotion": "ambition",
+          "setFlags": ["SKUNKWORKS"],
+          "next": "p3c",
+          "learn": "Skunkworks: Tạo phòng lab bí mật cho đổi mới."
+        },
+        {
+          "id": "p2c4",
+          "label": "Thoát khỏi Big Pharma - khởi động lại",
+          "result_text": "✓ Bạn đi khỏi với kinh nghiệm và ít tiền.",
+          "effects": { "profit": -10, "trust": 15, "power": -10 },
+          "emotion": "hope",
+          "setFlags": ["STARTUP_ESCAPE"],
+          "next": "p3b",
+          "learn": "Thoát Khỏi: Rời bỏ Big Pharma để lập nghiệp."
+        }
+      ]
+    },
+    {
+      "id": "p2d",
+      "title": "Cấp Phép Phân Cấp - Giá Công Bằng",
+      "narrative": "Bạn cấp phép thuốc với giá khác nhau ở các quốc gia khác nhau. Giàu nước muốn trả nhiều, nước nghèo trả ít. Hệ thống công bằng.",
+      "mood": "temptation",
+      "image_prompt": "Global map showing differential pricing, medicine reaching diverse populations across wealth levels, balanced scales, fair distribution imagery",
+      "choices": [
+        {
+          "id": "p2d1",
+          "label": "Duy trì cấp phép công bằng - lợi nhuận ổn định",
+          "result_text": "✓ Bạn kiếm lợi nhuận bền vững, thế giới hài lòng.",
+          "effects": { "trust": 20, "profit": 20, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["FAIR_LICENSING_STABLE"],
+          "next": "p3b",
+          "learn": "Cấp Phép Bền Vững: Lợi nhuận công bằng dài hạn."
+        },
+        {
+          "id": "p2d2",
+          "label": "Tăng giá từ từ ở các nước giàu",
+          "result_text": "✓ Bạn chiếm lĩnh nước giàu, các nước nghèo vẫn rẻ.",
+          "effects": { "profit": 30, "trust": -10, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["TIERED_PRICE_INCREASE"],
+          "next": "p3a",
+          "learn": "Tăng Giá Phân Cấp: Chiến lược giá khác nhau."
+        },
+        {
+          "id": "p2d3",
+          "label": "Hợp tác với WHO/LHQ - chuẩn hóa giá",
+          "result_text": "✓ Bạn nắm được bình luận toàn cầu.",
+          "effects": { "trust": 25, "profit": 15, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["UN_PARTNERSHIP"],
+          "next": "p3d",
+          "learn": "Kết Nối LHQ: Hợp tác quốc tế về giá."
+        },
+        {
+          "id": "p2d4",
+          "label": "Tìm công ty khác cạnh tranh vào nước giàu",
+          "result_text": "✓ Bạn chỉnh sửa chiến lược - nước giàu tăng cạnh tranh.",
+          "effects": { "profit": 15, "trust": 15, "power": 5 },
+          "emotion": "ambition",
+          "setFlags": ["ENCOURAGE_COMPETITION"],
+          "next": "p3c",
+          "learn": "Khuyến Khích Cạnh Tranh: Để cạnh tranh vào nước giàu."
+        }
+      ]
+    },
+    {
+      "id": "p3a",
+      "title": "Tư Bản Tài Chính Thống Trị",
+      "narrative": "Các quỹ tư nhân muốn cổ phần. Họ hứa kiếm tiền tỷ nếu bạn tối đa hóa lợi nhuận.",
+      "mood": "corruption",
+      "image_prompt": "Wall Street investment firm meeting with pharma executive, contract signing, graphs showing quarterly earnings targets, high-stakes financial atmosphere",
+      "choices": [
+        {
+          "id": "p3a1",
+          "label": "Chấp nhận đầu tư - tối đa hóa lợi nhuận",
+          "result_text": "✓ Hàng tỷ vốn chảy vào. Phố Wall sở hữu bạn.",
+          "effects": { "profit": 30, "power": 25, "trust": -25 },
+          "emotion": "greed",
+          "setFlags": ["PE_CONTROLLED"],
+          "next_if": [
+            {
+              "max_trust": 25,
+              "requireFlags": ["PRICE_GOUGING"],
+              "next": "p4a_scandal"
+            }
+          ],
+          "next": "p4a",
+          "learn": "Chiếm Đóng Tài Chính: Tư bản tài chính thống trị, lợi nhuận hàng quý."
+        },
+        {
+          "id": "p3a2",
+          "label": "Giữ độc lập - tự tài trợ",
+          "result_text": "✓ Tăng trưởng chậm nhưng duy trì sứ mệnh.",
+          "effects": { "trust": 10, "profit": 10, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["BOOTSTRAPPED"],
+          "next": "p4b",
+          "learn": "Tự Tài Trợ: Độc lập khỏi tài chính."
+        },
+        {
+          "id": "p3a3",
+          "label": "Hợp tác với các quỹ phi lợi nhuận/xã hội",
+          "result_text": "✓ Vốn với giá trị xã hội.",
+          "effects": { "trust": 20, "profit": 15, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["SOCIAL_CAPITAL"],
+          "next": "p4d",
+          "learn": "Tư Bản Xã Hội: Đầu tư với giá trị xã hội."
+        },
+        {
+          "id": "p3a4",
+          "label": "Bán công ty cho một tập đoàn khổng lồ",
+          "result_text": "✓ Bạn kiếm tiền toàn bộ nhưng cuộc chơi kết thúc.",
+          "effects": { "profit": 999, "power": -50, "trust": 0 },
+          "ending": "golden_exit",
+          "emotion": "greed"
+        }
+      ]
+    },
+    {
+      "id": "p3b",
+      "title": "Độc Lập Đổi Mới",
+      "narrative": "Bạn tiếp tục phát triển công ty độc lập. Mỗi thuốc là kết quả của đổi mới chân chính.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "p3b1",
+          "label": "Duy trì độc lập - tăng trưởng bền vững",
+          "result_text": "✓ Lợi nhuận ổn định, danh tiếng cao.",
+          "effects": { "trust": 20, "profit": 15, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["INDEPENDENT_STABLE"],
+          "next": "p4b",
+          "learn": "Độc Lập Bền Vững: Phát triển chậm nhưng chắc chắn."
+        },
+        {
+          "id": "p3b2",
+          "label": "Bị mua lại sau một năm khi công ty được định giá cao",
+          "result_text": "✓ Bạn bán công ty với giá cao.",
+          "effects": { "profit": 100, "power": -30, "trust": -15 },
+          "ending": "acquired_biotech",
+          "emotion": "greed"
+        },
+        {
+          "id": "p3b3",
+          "label": "Hợp tác với các quỹ phi lợi nhuận",
+          "result_text": "✓ Vốn xã hội thay vì tư nhân.",
+          "effects": { "trust": 20, "profit": 12, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["SOCIAL_FUND"],
+          "next": "p4d",
+          "learn": "Tư Bản Xã Hội: Vốn từ quỹ phi lợi nhuận."
+        },
+        {
+          "id": "p3b4",
+          "label": "Thành lập một mạng lưới các công ty nhỏ cùng mục tiêu",
+          "result_text": "✓ Bạn tạo mạng lưới phân tán.",
+          "effects": { "trust": 15, "profit": 10, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["DISTRIBUTED_NETWORK"],
+          "next": "p4c",
+          "learn": "Mạng Lưới Phân Tán: Hợp tác thay vì độc quyền."
+        }
+      ]
+    },
+    {
+      "id": "p3c",
+      "title": "Cân Bằng Tư Bản Công Khai",
+      "narrative": "Bạn tìm được cân bằng - lợi nhuận công bằng mà vẫn đổi mới. Chính phủ hỗ trợ mô hình của bạn.",
+      "mood": "temptation",
+      "image_prompt": "Pharmaceutical research lab with balanced scales showing profit and ethics, government collaboration symbols, sustainable growth charts, hopeful atmosphere",
+      "choices": [
+        {
+          "id": "p3c1",
+          "label": "Duy trì cân bằng - bộ quy tắc tự quản",
+          "result_text": "✓ Bạn thiết lập quy tắc tự quản nghiêm ngặt.",
+          "effects": { "trust": 25, "profit": 18, "power": 12 },
+          "emotion": "hope",
+          "setFlags": ["SELF_REGULATION"],
+          "next": "p4c",
+          "learn": "Quy Tắc Tự Quản: Tự áp dụng tiêu chuẩn cao."
+        },
+        {
+          "id": "p3c2",
+          "label": "Thêm cạnh tranh bằng cách mở bằng sáng chế",
+          "result_text": "✓ Bạn chia sẻ bằng sáng chế - khoa học mở.",
+          "effects": { "trust": 30, "profit": 10, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["OPEN_PATENTS"],
+          "next": "p4b",
+          "learn": "Bằng Sáng Chế Mở: Chia sẻ bằng sáng chế công khai."
+        },
+        {
+          "id": "p3c3",
+          "label": "Nhận đầu tư từ chính phủ - đổi lấy kiểm sát chất lượng",
+          "result_text": "✓ Chính phủ kiểm sát chất lượng nhưng bạn kiếm tiền.",
+          "effects": { "trust": 20, "profit": 20, "power": 10 },
+          "emotion": "ambition",
+          "setFlags": ["GOV_OVERSIGHT"],
+          "next": "p4a",
+          "learn": "Giám Sát Chính Phủ: Nhà nước kiểm soát chất lượng."
+        },
+        {
+          "id": "p3c4",
+          "label": "Lập một cơ quan tư nhân độc lập để kiểm sát chất lượng",
+          "result_text": "✓ Bạn tạo lập tổ chức kiểm sát độc lập.",
+          "effects": { "trust": 22, "profit": 15, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["INDEPENDENT_OVERSIGHT"],
+          "next": "p4c",
+          "learn": "Kiểm Sát Độc Lập: Tổ chức kiểm sát bên thứ ba."
+        }
+      ]
+    },
+    {
+      "id": "p3d",
+      "title": "Tư Bản Hợp Tác - Hạn Chế Độc Quyền",
+      "narrative": "Bạn hợp tác với các tổ chức quốc tế - giảm độc quyền nhưng vẫn kiếm lợi nhuận.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "p3d1",
+          "label": "Hợp tác với LHQ - tiêu chuẩn giá công bằng",
+          "result_text": "✓ Bạn ký thỏa thuận với LHQ.",
+          "effects": { "trust": 25, "profit": 15, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["UN_AGREEMENT"],
+          "next": "p4d",
+          "learn": "Hợp Tác LHQ: Tiêu chuẩn giá quốc tế."
+        },
+        {
+          "id": "p3d2",
+          "label": "Hợp tác với WHO - sức khỏe toàn cầu",
+          "result_text": "✓ Bạn hợp tác với WHO về sức khỏe toàn cầu.",
+          "effects": { "trust": 20, "profit": 12, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["WHO_PARTNERSHIP"],
+          "next": "p4d",
+          "learn": "Hợp Tác WHO: Sức khỏe toàn cầu."
+        },
+        {
+          "id": "p3d3",
+          "label": "Thành lập hợp tác xã với các công ty dược khác",
+          "result_text": "✓ Bạn tạo cartel từ thiện thay vì tham lam.",
+          "effects": { "trust": 20, "profit": 10, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["PHARMA_COOP"],
+          "next": "p4d",
+          "learn": "Hợp Tác Xã Dược: Cartel từ thiện."
+        },
+        {
+          "id": "p3d4",
+          "label": "Tìm giải pháp tư bản xã hội - đầu tư có tác động",
+          "result_text": "✓ Bạn tìm nhà đầu tư có mục tiêu xã hội.",
+          "effects": { "trust": 18, "profit": 15, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["IMPACT_INVESTMENT"],
+          "next": "p4d",
+          "learn": "Đầu Tư Có Tác Động: Vốn xã hội."
+        }
+      ]
+    },
+    {
+      "id": "p4a",
+      "title": "Độc Quyền Thuốc Toàn Cầu - Hợp Đồng Nhà Nước",
+      "narrative": "Bạn kiểm soát các loại thuốc thiết yếu toàn cầu. Chính phủ đến gọi - hợp đồng độc quyền.",
+      "mood": "corruption",
+      "image_prompt": "Government officials negotiating with pharmaceutical CEO in luxury boardroom, stacks of pills arranged like money, power and profit symbolism",
+      "choices": [
+        {
+          "id": "p4a1",
+          "label": "Ký hợp đồng độc quyền nhà nước",
+          "result_text": "✓ Lợi nhuận hàng tỷ được đảm bảo. Bạn kiểm soát sức khỏe thiết yếu.",
+          "effects": { "profit": 30, "power": 35, "trust": -35 },
+          "ending": "big_pharma",
+          "emotion": "greed"
+        },
+        {
+          "id": "p4a2",
+          "label": "Từ chối - cấp phép cho cạnh tranh",
+          "result_text": "✓ Bạn ưu tiên tiếp cận công bằng.",
+          "effects": { "trust": 30, "profit": -10, "power": -15 },
+          "ending": "ethical_pharma",
+          "emotion": "hope"
+        },
+        {
+          "id": "p4a3",
+          "label": "Đàm phán giá công bằng trước",
+          "result_text": "✓ Bạn cân bằng giữa lợi nhuận và tiếp cận.",
+          "effects": { "trust": 15, "profit": 15, "power": 10 },
+          "ending": "negotiated_monopoly",
+          "emotion": "ambition"
+        },
+        {
+          "id": "p4a4",
+          "label": "Chỉ cung cấp cho các nước dân chủ",
+          "result_text": "✓ Bạn chọn khách hàng có đạo đức.",
+          "effects": { "trust": 20, "profit": 10, "power": 10 },
+          "ending": "selective_supply",
+          "emotion": "hope"
+        }
+      ]
+    },
+    {
+      "id": "p4a_scandal",
+      "title": "Bê Bối Giá Thuốc Toàn Cầu",
+      "narrative": "Báo chí tiết lộ bạn nâng giá 500% với sự tài trợ PE. Bệnh nhân tuyệt vọng.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "p4a_s1",
+          "label": "Hạ giá khẩn cấp - cứu vãn",
+          "result_text": "Bạn mất tiền nhưng sống sót.",
+          "effects": { "profit": -25, "trust": 20, "power": -15 },
+          "next": "p4c",
+          "emotion": "hope"
+        },
+        {
+          "id": "p4a_s2",
+          "label": "Phản kháng - kiện báo chí",
+          "result_text": "Bạn thua kiện. Công khai thêm.",
+          "effects": { "profit": -40, "trust": -50, "power": -25 },
+          "ending": "pharma_downfall",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "p4b",
+      "title": "Doanh Nhân Độc Lập - Đổi Mới Bền Vững",
+      "narrative": "Bạn phát triển công ty một cách chậm nhưng chắc chắn. Mỗi thuốc là kết quả của đổi mới, không áp lực giá.",
+      "mood": "temptation",
+      "image_prompt": "Small independent pharmaceutical research lab with dedicated scientists, breakthrough discovery celebration, hopeful and purposeful atmosphere",
+      "choices": [
+        {
+          "id": "p4b1",
+          "label": "Duy trì độc lập - phát triển bền vững",
+          "result_text": "✓ Lợi nhuận ổn định, danh tiếng cao.",
+          "effects": { "trust": 25, "profit": 15, "power": 15 },
+          "ending": "sustainable_innovator",
+          "emotion": "hope"
+        },
+        {
+          "id": "p4b2",
+          "label": "Bị quỹ tư nhân mua lại sau một năm",
+          "result_text": "✓ Bạn bán công ty khi nó đắt giá.",
+          "effects": { "profit": 100, "power": -30, "trust": -15 },
+          "ending": "acquired_independent",
+          "emotion": "greed"
+        }
+      ]
+    },
+    {
+      "id": "p4c",
+      "title": "Doanh Nhân Cải Cách - Sạch Tay",
+      "narrative": "Bạn đã học được bài học về độc quyền. Công ty của bạn trở thành biểu tượng của kinh doanh có đạo đức.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "p4c1",
+          "label": "Duy trì đạo đức - lợi nhuận từ tin tưởng",
+          "result_text": "✓ Bạn xây dựng thương hiệu từ quyền.",
+          "effects": { "trust": 30, "profit": 15, "power": 15 },
+          "ending": "reformed_pharma",
+          "emotion": "hope"
+        },
+        {
+          "id": "p4c2",
+          "label": "Quay trở lại độc quyền từ từ",
+          "result_text": "✓ Bạn thay đổi ý kiến.",
+          "effects": { "profit": 25, "trust": -20, "power": 15 },
+          "ending": "reformed_relapse",
+          "emotion": "greed"
+        }
+      ]
+    },
+    {
+      "id": "p4d",
+      "title": "Doanh Nhân Xã Hội - Sứ Mệnh Công Bằng",
+      "narrative": "Công ty của bạn kết hợp lợi nhuận với sứ mệnh. Bạn phát triển thuốc cho bệnh quá hiếm gặp không ai muốn phát triển.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "p4d1",
+          "label": "Duy trì sứ mệnh xã hội",
+          "result_text": "✓ Bạn cứu hàng triệu không kiếm tiền nhiều.",
+          "effects": { "trust": 35, "profit": 10, "power": 10 },
+          "ending": "mission_driven",
+          "emotion": "hope"
+        },
+        {
+          "id": "p4d2",
+          "label": "Bán cho tập đoàn lớn",
+          "result_text": "✓ Bạn thoát khỏi với ít tiền hơn kỳ vọng.",
+          "effects": { "profit": 50, "power": -20, "trust": -10 },
+          "ending": "mission_sellout",
+          "emotion": "greed"
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "big_pharma",
+      "title": "💰 Big Pharma - Độc Quyền Y Tế",
+      "text": "Công ty của bạn kiểm soát các loại thuốc thiết yếu toàn cầu. Giá tăng vọt, lợi nhuận nhân lên, và hàng tỷ bị khóa ngoài. Bạn đạt được hình thức độc quyền cao nhất - sự dung hợp của tư bản độc quyền và nhà nước.",
+      "conditions": { "min_profit": 90, "min_power": 70, "max_trust": 30 }
+    },
+    {
+      "id": "ethical_pharma",
+      "title": "⚖️ Dược Phẩm Công Bằng",
+      "text": "Công ty của bạn ưu tiên tiếp cận công bằng hơn lợi nhuận tối đa. Mặc dù nhỏ hơn đối thủ, ảnh hưởng của bạn định hình chính sách y tế toàn cầu.",
+      "conditions": { "min_trust": 75, "max_profit": 70 }
+    },
+    {
+      "id": "negotiated_monopoly",
+      "title": "⚖️ Độc Quyền Đàm Phán",
+      "text": "Bạn có độc quyền nhưng với giá được đàm phán công bằng. Cân bằng giữa lợi nhuận và công bằng.",
+      "conditions": { "min_profit": 70, "min_trust": 50 }
+    },
+    {
+      "id": "selective_supply",
+      "title": "🎯 Nhà Cung Cấp Chọn Lọc",
+      "text": "Bạn chỉ cung cấp cho các nước dân chủ. Giàu nhưng có nguyên tắc.",
+      "conditions": { "min_trust": 70, "min_profit": 60 }
+    },
+    {
+      "id": "sustainable_innovator",
+      "title": "🚀 Nhà Đổi Mới Bền Vững",
+      "text": "Công ty của bạn lãnh đạo đổi mới mà không áp lực độc quyền. Bạn chứng minh rằng lợi nhuận có thể đi cùng với mục đích.",
+      "conditions": { "min_trust": 80, "min_profit": 60 }
+    },
+    {
+      "id": "acquired_independent",
+      "title": "💰 Độc Lập Bán Được",
+      "text": "Bạn bán công ty khi nó có giá cao nhất. Thoát khỏi trước khi lực lượng độc quyền chiếm đóng.",
+      "conditions": { "min_profit": 80, "max_trust": 40 }
+    },
+    {
+      "id": "reformed_pharma",
+      "title": "🌱 Doanh Nhân Cải Cách",
+      "text": "Bạn học được bài học và xây dựng công ty từ cải cách. Thương hiệu của bạn là đạo đức.",
+      "conditions": { "min_trust": 85, "min_profit": 50 }
+    },
+    {
+      "id": "reformed_relapse",
+      "title": "📉 Tái Khởi Động Độc Quyền",
+      "text": "Bạn đã thay đổi ý kiến. Quay trở lại chiên lược độc quyền giá.",
+      "conditions": { "min_profit": 70, "min_trust": 30 }
+    },
+    {
+      "id": "mission_driven",
+      "title": "❤️ Doanh Nhân Sứ Mệnh",
+      "text": "Công ty của bạn ưu tiên sứ mệnh xã hội hơn lợi nhuận. Bạn cứu hàng triệu nhưng với kinh tế hạn chế.",
+      "conditions": { "min_trust": 90, "min_profit": 40 }
+    },
+    {
+      "id": "mission_sellout",
+      "title": "💔 Bán Lạc Mệnh",
+      "text": "Bạn bán công ty với sứ mệnh. Một phần bạn hối tiếc.",
+      "conditions": { "min_profit": 50, "max_trust": 50 }
+    },
+    {
+      "id": "pharma_pariah",
+      "title": "🚫 Kẻ Bị Ruồng Bỏ Y Tế",
+      "text": "Bạn bị tẩy chay vì tham lam lợi nhuận. Công ty sụp đổ.",
+      "conditions": { "max_trust": 15, "max_profit": 50 }
+    },
+    {
+      "id": "pharma_downfall",
+      "title": "📉 Sụp Đổ Dược Phẩm",
+      "text": "Bê bối kéo bạn xuống. Công ty đóng cửa.",
+      "conditions": { "max_trust": 20, "max_profit": 30 }
+    },
+    {
+      "id": "golden_exit",
+      "title": "💰 Thoát Khỏi Vàng",
+      "text": "Bạn bán công ty với giá cao nhất. Bạn không tham gia trò chơi độc quyền dài hạn.",
+      "conditions": { "min_profit": 80, "max_power": 20 }
+    },
+    {
+      "id": "acquired_biotech",
+      "title": "💰 Công Ty Khởi Nghiệp Bị Mua",
+      "text": "Bạn bán công ty khởi nghiệp với giá cao. Giàu nhanh nhưng mất độc lập.",
+      "conditions": { "min_profit": 80, "max_trust": 30 }
+    }
+  ]
+}

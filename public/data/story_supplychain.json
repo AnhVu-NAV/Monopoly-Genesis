@@ -1,0 +1,485 @@
+{
+  "schema_version": "1.1",
+  "industry_id": "supplychain",
+  "name": "🔗 Chuỗi Cung Ứng Toàn Cầu",
+  "intro": "Bạn tối ưu trước — rồi chi phối vận tải toàn cầu. Mục tiêu: giao hàng ngày-mai, giá rẻ như nội địa, xuyên biên giới.",
+  "initial_stats": { "profit": 35, "trust": 55, "power": 25 },
+  "prologue": {
+    "title": "Hành trình của một kiện hàng",
+    "paragraphs": [
+      "Từ bến cảng lạnh đêm đến con hẻm ấm sáng, logistics là nghệ thuật đi đúng nơi, đúng lúc.",
+      "Bạn sở hữu thuật toán, bến cảng, đường bay — hoặc chỉ một lời hứa giao ngày mai.",
+      "Mỗi lựa chọn tối ưu hôm nay có thể là rủi ro pháp lý ngày mai. Chuỗi giá trị nhớ rất lâu."
+    ],
+    "audio": [
+      "/data/audio/supplychain/p0.mp3",
+      "/data/audio/supplychain/p1.mp3",
+      "/data/audio/supplychain/p2.mp3"
+    ]
+  },
+  "stages": [
+    {
+      "id": "sc_entry",
+      "title": "Bước Vào Đường Đua Toàn Cầu",
+      "narrative": "Bạn có một mạng fulfillment nội địa đang tăng trưởng. Cơ hội mở rộng xuyên biên giới xuất hiện.",
+      "mood": "temptation",
+      "image_prompt": "Massive sorting center with yellow robots, parcels flowing, dashboards showing ETA, crisp tech-industrial look",
+      "choices": [
+        {
+          "id": "sc_e1",
+          "label": "Mua lại 2 hãng giao nhanh nội địa để tăng mật độ điểm giao",
+          "result_text": "✓ Mạng last-mile dày đặc hơn.",
+          "effects": { "profit": 10, "power": 10, "trust": -5 },
+          "emotion": "ambition",
+          "setFlags": ["ACQ_LM"],
+          "next": "sc_network"
+        },
+        {
+          "id": "sc_e2",
+          "label": "Đặt cược vào công nghệ: xây OMS/WMS/TMS hợp nhất",
+          "result_text": "✓ Nền tảng điều vận hợp nhất (Order/Warehouse/Transport).",
+          "effects": { "trust": 10, "profit": 5, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["PLATFORM_CORE"],
+          "next": "sc_platform"
+        },
+        {
+          "id": "sc_e3",
+          "label": "Ký kết với 3 cảng chiến lược – thuê dài hạn bến và kho ngoại quan",
+          "result_text": "✓ Slot cảng được đảm bảo.",
+          "effects": { "profit": 8, "power": 12, "trust": -3 },
+          "emotion": "ambition",
+          "setFlags": ["PORT_SLOTS"],
+          "next": "sc_ports"
+        },
+        {
+          "id": "sc_e4",
+          "label": "Chơi giá rẻ toàn diện: trợ giá giao nhanh trong 6 tháng",
+          "result_text": "✓ Đơn bùng nổ, biên mỏng đi.",
+          "effects": { "profit": -10, "trust": 5, "power": 10 },
+          "emotion": "greed",
+          "setFlags": ["SUBSIDY_BLITZ"],
+          "next": "sc_burn"
+        }
+      ]
+    },
+
+    {
+      "id": "sc_network",
+      "title": "Mạng Lưới Last-Mile Dày Đặc",
+      "narrative": "Bạn sở hữu đội xe, trạm vi mô, tủ locker khắp thành phố. Câu hỏi: mở rộng liên kết với tuyến trunk-line thế nào?",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "sc_n1",
+          "label": "Đầu tư line-haul nội địa bằng trailer tự sở hữu",
+          "result_text": "✓ Chủ động lịch trình xuyên đêm.",
+          "effects": { "profit": 12, "power": 8, "trust": 2 },
+          "emotion": "ambition",
+          "setFlags": ["OWN_LINEHAUL"],
+          "next": "sc_crossborder"
+        },
+        {
+          "id": "sc_n2",
+          "label": "Thuê 3PL làm line-haul, tập trung vào last-mile",
+          "result_text": "✓ Capex thấp, phụ thuộc đối tác.",
+          "effects": { "profit": 6, "trust": 6, "power": -5 },
+          "emotion": "hope",
+          "setFlags": ["OUTSOURCE_LH"],
+          "next": "sc_crossborder"
+        },
+        {
+          "id": "sc_n3",
+          "label": "Áp phí cao với người bán nhỏ để bù trợ giá",
+          "result_text": "✓ Doanh thu tăng ngắn hạn, cộng đồng phàn nàn.",
+          "effects": { "profit": 15, "trust": -15, "power": 5 },
+          "emotion": "greed",
+          "setFlags": ["MERCHANT_PUSHBACK"],
+          "next": "sc_risk"
+        },
+        {
+          "id": "sc_n4",
+          "label": "Mở API giao hàng trong ngày cho marketplace",
+          "result_text": "✓ Nhà bán tích hợp nhanh.",
+          "effects": { "profit": 8, "trust": 10, "power": 6 },
+          "emotion": "hope",
+          "setFlags": ["SAME_DAY_API"],
+          "next": "sc_platform"
+        }
+      ]
+    },
+
+    {
+      "id": "sc_platform",
+      "title": "Nền Tảng Điều Vận Hợp Nhất",
+      "narrative": "OMS/WMS/TMS hợp nhất tạo visibility E2E. Bạn có thể mở bán như một platform SaaS/Network.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "sc_p1",
+          "label": "Bán SaaS thu phí theo đơn – mở rộng quốc tế qua đối tác",
+          "result_text": "✓ Doanh thu định kỳ + footprint nhanh.",
+          "effects": { "profit": 12, "trust": 10, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["SAAS_NETWORK"],
+          "next": "sc_crossborder"
+        },
+        {
+          "id": "sc_p2",
+          "label": "Giữ độc quyền: chỉ dùng nội bộ để tối ưu chi phí",
+          "result_text": "✓ Biên tốt hơn, ít quan hệ hệ sinh thái.",
+          "effects": { "profit": 10, "trust": -5, "power": 10 },
+          "emotion": "ambition",
+          "setFlags": ["CLOSED_STACK"],
+          "next": "sc_crossborder"
+        },
+        {
+          "id": "sc_p3",
+          "label": "Thu thập dữ liệu mức SKU – xây Demand Forecast AI",
+          "result_text": "✓ Dự báo tồn kho chuẩn hơn.",
+          "effects": { "profit": 10, "trust": -3, "power": 12 },
+          "emotion": "greed",
+          "setFlags": ["SKU_TELEMETRY"],
+          "next": "sc_data"
+        },
+        {
+          "id": "sc_p4",
+          "label": "Open-source một phần: tiêu chuẩn API giao nhận",
+          "result_text": "✓ Hệ sinh thái yêu thích bạn.",
+          "effects": { "trust": 15, "profit": 5, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["OPEN_STANDARD"],
+          "next": "sc_data"
+        }
+      ]
+    },
+
+    {
+      "id": "sc_ports",
+      "title": "Liên Minh Cảng Biển",
+      "narrative": "Bạn giữ slot bến, kho ngoại quan tại 3 cảng. Hãng tàu muốn bundle ưu tiên dỡ hàng cho bạn.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "sc_port1",
+          "label": "Trả phí bảo đảm – ưu tiên dỡ hàng, giảm dwell time",
+          "result_text": "✓ Turnaround nhanh kỷ lục.",
+          "effects": { "profit": 12, "power": 10, "trust": -3 },
+          "emotion": "ambition",
+          "setFlags": ["FAST_TURN"],
+          "next": "sc_crossborder"
+        },
+        {
+          "id": "sc_port2",
+          "label": "Đàm phán chia sẻ dữ liệu cảng ↔ tàu ↔ kho",
+          "result_text": "✓ ETA chuẩn, giảm ùn tắc.",
+          "effects": { "profit": 8, "trust": 8, "power": 6 },
+          "emotion": "hope",
+          "setFlags": ["PORT_DATASHARE"],
+          "next": "sc_data"
+        },
+        {
+          "id": "sc_port3",
+          "label": "Tạo cartel bốc xếp ngầm để nâng phí container",
+          "result_text": "✓ Lợi nhuận bật mạnh, rủi ro pháp lý tăng.",
+          "effects": { "profit": 20, "trust": -20, "power": 12 },
+          "emotion": "greed",
+          "setFlags": ["HANDLING_CARTEL"],
+          "next_if": [{ "max_trust": 30, "next": "sc_probe" }],
+          "next": "sc_crossborder",
+          "learn": "Cartel cảng làm tăng CPI địa phương và sẽ bị soi."
+        },
+        {
+          "id": "sc_port4",
+          "label": "Đầu tư lạnh sâu cho dược/pharma tại cảng",
+          "result_text": "✓ Lĩnh vực margin cao, đòi hỏi chuẩn GxP.",
+          "effects": { "profit": 10, "trust": 10, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["COLDCHAIN_CAPEX"],
+          "next": "sc_crossborder"
+        }
+      ]
+    },
+
+    {
+      "id": "sc_burn",
+      "title": "Đốt Vốn Toàn Diện",
+      "narrative": "Bạn trợ giá toàn tuyến. Volume tăng – biên âm kéo dài.",
+      "mood": "crisis",
+      "choices": [
+        {
+          "id": "sc_b1",
+          "label": "Cắt trợ giá ngay – giữ tính bền vững",
+          "result_text": "✓ Đơn giảm, unit economics hồi phục.",
+          "effects": { "profit": 15, "trust": -5, "power": -5 },
+          "emotion": "hope",
+          "setFlags": ["DISCIPLINE"],
+          "next": "sc_network"
+        },
+        {
+          "id": "sc_b2",
+          "label": "Tăng bán chéo Fulfillment + Ads tại checkout",
+          "result_text": "✓ Biên cải thiện từ dịch vụ phụ trợ.",
+          "effects": { "profit": 10, "trust": 5, "power": 5 },
+          "emotion": "ambition",
+          "setFlags": ["ANCILLARY_MONETIZE"],
+          "next": "sc_platform"
+        },
+        {
+          "id": "sc_b3",
+          "label": "Tiếp tục đốt – giết 3 đối thủ địa phương",
+          "result_text": "✓ Thị phần tăng mạnh; rủi ro pháp lý gần kề.",
+          "effects": { "profit": -5, "trust": -10, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["PREDATORY_PRICING"],
+          "next_if": [{ "max_trust": 35, "next": "sc_probe" }],
+          "next": "sc_crossborder"
+        },
+        {
+          "id": "sc_b4",
+          "label": "Pivot qua B2B: SLA cam kết, giá bền vững",
+          "result_text": "✓ Mất bớt traffic retail, tăng doanh nghiệp lớn.",
+          "effects": { "profit": 12, "trust": 12, "power": 6 },
+          "emotion": "hope",
+          "setFlags": ["B2B_SLA"],
+          "next": "sc_crossborder"
+        }
+      ]
+    },
+
+    {
+      "id": "sc_risk",
+      "title": "Phản Ứng Cộng Đồng Người Bán",
+      "narrative": "Nhà bán than phí cao/ẩn. Báo chí bắt đầu nói về độc quyền.",
+      "mood": "crisis",
+      "choices": [
+        {
+          "id": "sc_r1",
+          "label": "Công bố biểu phí minh bạch + cap phí tối đa",
+          "result_text": "✓ Tin tưởng dần hồi phục.",
+          "effects": { "trust": 15, "profit": -5, "power": -3 },
+          "emotion": "hope",
+          "setFlags": ["FEE_CAP"],
+          "next": "sc_platform"
+        },
+        {
+          "id": "sc_r2",
+          "label": "Giảm phí đổi lấy độc quyền lưu lượng",
+          "result_text": "✓ Khoá chặt nhà bán; PR tiêu cực tăng.",
+          "effects": { "profit": 10, "trust": -10, "power": 12 },
+          "emotion": "greed",
+          "setFlags": ["EXCLUSIVITY"],
+          "next": "sc_crossborder"
+        },
+        {
+          "id": "sc_r3",
+          "label": "Tạo quỹ hỗ trợ SME: tín dụng quay vòng + kho chung",
+          "result_text": "✓ Hệ sinh thái ủng hộ bạn.",
+          "effects": { "trust": 18, "profit": 5, "power": 6 },
+          "emotion": "hope",
+          "setFlags": ["SME_FUND"],
+          "next": "sc_crossborder"
+        },
+        {
+          "id": "sc_r4",
+          "label": "Bỏ qua – khoá tài khoản phàn nàn",
+          "result_text": "✗ Làn sóng #StopFees bùng nổ.",
+          "effects": { "trust": -25, "profit": 5, "power": 8 },
+          "emotion": "despair",
+          "setFlags": ["COMMUNITY_BACKLASH"],
+          "next_if": [{ "max_trust": 30, "next": "sc_probe" }],
+          "next": "sc_crossborder"
+        }
+      ]
+    },
+
+    {
+      "id": "sc_probe",
+      "title": "Điều Tra Chống Độc Quyền",
+      "narrative": "Cơ quan quản lý mở hồ sơ về định phí, cartels cảng, và giá huỷ diệt.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "sc_pr1",
+          "label": "Chấp nhận phán quyết – tách mảng cảng/last-mile",
+          "result_text": "Bạn sống sót nhưng quyền lực giảm mạnh.",
+          "effects": { "profit": -15, "trust": 10, "power": -30 },
+          "ending": "antitrust_split",
+          "emotion": "despair"
+        },
+        {
+          "id": "sc_pr2",
+          "label": "Đấu pháp lý đến cùng",
+          "result_text": "Cuộc chiến tốn kém; cuối cùng thỏa thuận phạt lớn.",
+          "effects": { "profit": -30, "trust": -5, "power": 10 },
+          "next": "sc_crossborder",
+          "emotion": "fear"
+        }
+      ]
+    },
+
+    {
+      "id": "sc_data",
+      "title": "Đế Chế Dữ Liệu Logistics",
+      "narrative": "Bạn nắm dữ liệu SKU, dwell time, lane cost, thất lạc, ETA. Chính phủ và tập đoàn muốn truy cập.",
+      "mood": "corruption",
+      "choices": [
+        {
+          "id": "sc_d1",
+          "label": "Bán data định danh – nhắm mục tiêu nhà bán",
+          "result_text": "✓ Lợi nhuận bật mạnh; rủi ro riêng tư tăng.",
+          "effects": { "profit": 25, "trust": -20, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["DATA_SELL"],
+          "next": "sc_global"
+        },
+        {
+          "id": "sc_d2",
+          "label": "Ẩn danh dữ liệu, chỉ bán insight tổng hợp",
+          "result_text": "✓ Niềm tin tăng, biên thấp hơn.",
+          "effects": { "profit": 10, "trust": 15, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["DATA_ANON"],
+          "next": "sc_global"
+        },
+        {
+          "id": "sc_d3",
+          "label": "Mở dữ liệu thời tiết/ETA cho cộng đồng (open feed)",
+          "result_text": "✓ Chuỗi giá trị hưởng lợi, bạn là tiêu chuẩn.",
+          "effects": { "trust": 15, "profit": 5, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["OPEN_FEED"],
+          "next": "sc_global"
+        },
+        {
+          "id": "sc_d4",
+          "label": "Khai thác dynamic pricing theo giờ (surge fee)",
+          "result_text": "✓ Tối ưu doanh thu; khách bức xúc.",
+          "effects": { "profit": 18, "trust": -12, "power": 10 },
+          "emotion": "ambition",
+          "setFlags": ["SURGE_PRICING"],
+          "next": "sc_global"
+        }
+      ]
+    },
+
+    {
+      "id": "sc_crossborder",
+      "title": "Xuyên Biên Giới: Air, Sea, Rail",
+      "narrative": "Bạn phải quyết định cấu phần quốc tế: hàng không, đường biển, hành lang đường sắt xuyên lục địa.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "sc_c1",
+          "label": "Thuê nguyên máy bay đêm – cam kết D+2",
+          "result_text": "✓ Nhanh, tốn kém.",
+          "effects": { "profit": 8, "trust": 10, "power": 12 },
+          "emotion": "ambition",
+          "setFlags": ["AIR_CHARTER"],
+          "next": "sc_global"
+        },
+        {
+          "id": "sc_c2",
+          "label": "Biển số lượng lớn – tối ưu FCL/LCL",
+          "result_text": "✓ Giá rẻ, time dài.",
+          "effects": { "profit": 12, "trust": 5, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["OCEAN_OPT"],
+          "next": "sc_global"
+        },
+        {
+          "id": "sc_c3",
+          "label": "Rail Eurasia – line cố định mỗi tuần",
+          "result_text": "✓ Lead-time ổn định.",
+          "effects": { "profit": 10, "trust": 8, "power": 8 },
+          "emotion": "ambition",
+          "setFlags": ["RAIL_CORRIDOR"],
+          "next": "sc_global"
+        },
+        {
+          "id": "sc_c4",
+          "label": "Đa phương thức + consolidation thông minh",
+          "result_text": "✓ Cân bằng tốc độ/giá.",
+          "effects": { "profit": 10, "trust": 10, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["MULTIMODAL_SMART"],
+          "next": "sc_global"
+        }
+      ]
+    },
+
+    {
+      "id": "sc_global",
+      "title": "Thống Trị Toàn Cầu Hay Cân Bằng?",
+      "narrative": "Bạn đã chạm quy mô toàn cầu. Chính phủ đề nghị hợp đồng hải quan, tập đoàn muốn exclusive, xã hội soi tính riêng tư môi trường.",
+      "mood": "crisis",
+      "choices": [
+        {
+          "id": "sc_g1",
+          "label": "Ký hợp đồng hải quan điện tử – bạn là xương sống",
+          "result_text": "✓ Hàng đi như nước, bạn là chuẩn quốc gia.",
+          "effects": { "profit": 30, "power": 35, "trust": -20 },
+          "emotion": "greed",
+          "ending": "state_backbone"
+        },
+        {
+          "id": "sc_g2",
+          "label": "Cam kết xanh (EV fleet + renewable DC) – chi phí cao",
+          "result_text": "✓ Hệ thống xanh, thương hiệu sạch.",
+          "effects": { "profit": 10, "trust": 25, "power": 10 },
+          "emotion": "hope",
+          "ending": "green_champion"
+        },
+        {
+          "id": "sc_g3",
+          "label": "Đế chế dữ liệu logistics – bán quyền truy cập realtime",
+          "result_text": "✓ Bạn kiểm soát luồng thông tin vận tải.",
+          "effects": { "profit": 35, "power": 30, "trust": -25 },
+          "emotion": "greed",
+          "ending": "data_monopoly"
+        },
+        {
+          "id": "sc_g4",
+          "label": "Mở tiêu chuẩn – liên minh đa công ty, tính phí công bằng",
+          "result_text": "✓ Chuỗi giá trị khoẻ mạnh, bạn vẫn giàu.",
+          "effects": { "profit": 20, "trust": 20, "power": 15 },
+          "emotion": "hope",
+          "ending": "open_network"
+        }
+      ]
+    }
+  ],
+
+  "endings": [
+    {
+      "id": "state_backbone",
+      "title": "🏛️ Xương Sống Hải Quan Số",
+      "text": "Bạn trở thành hạ tầng công cộng de-facto. Tốc độ vô song, nhưng quyền lực tập trung khiến xã hội cảnh giác.",
+      "conditions": { "min_profit": 80, "min_power": 70, "max_trust": 40 }
+    },
+    {
+      "id": "green_champion",
+      "title": "🌱 Nhà Vô Địch Chuỗi Cung Ứng Xanh",
+      "text": "Đội xe EV, DC chạy năng lượng tái tạo, bao bì tuần hoàn. Bạn chứng minh logistics nhanh vẫn có thể bền vững.",
+      "conditions": { "min_trust": 75, "min_profit": 55 }
+    },
+    {
+      "id": "data_monopoly",
+      "title": "📊 Độc Quyền Dữ Liệu Vận Tải",
+      "text": "Bạn bán quyền truy cập data realtime các lane toàn cầu. Ai cũng phụ thuộc vào bạn để vận hành.",
+      "conditions": { "min_profit": 90, "min_power": 70, "max_trust": 35 }
+    },
+    {
+      "id": "open_network",
+      "title": "🤝 Liên Minh Mở – Chuỗi Giá Trị Khỏe",
+      "text": "Tiêu chuẩn mở, phí minh bạch. Nhiều công ty cùng hưởng lợi; bạn vẫn giữ vị thế lõi nhờ công nghệ.",
+      "conditions": { "min_trust": 70, "min_profit": 60, "min_power": 50 }
+    },
+    {
+      "id": "antitrust_split",
+      "title": "⚖️ Bị Chia Tách Chống Độc Quyền",
+      "text": "Sau điều tra, bạn buộc tách mảng cảng và last-mile. Đế chế thu nhỏ, nhưng bạn sống sót.",
+      "conditions": { "max_power": 35, "min_trust": 45 }
+    }
+  ]
+}

@@ -1,0 +1,540 @@
+{
+  "schema_version": "1.1",
+  "industry_id": "tech",
+  "name": "📱 Big Tech - Data Empire",
+  "intro": "Ứng dụng mạng xã hội của bạn phát nổ về tính phổ biến. Hàng tỷ người dùng. Bây giờ tới lúc kiếm tiền.",
+  "initial_stats": { "profit": 45, "trust": 55, "power": 30 },
+  "prologue": {
+    "title": "Bắt đầu từ một dòng code",
+    "paragraphs": [
+      "Ứng dụng của bạn bùng nổ. Một tỷ người mở app mỗi ngày, mọi nhịp sống gói trong dữ liệu.",
+      "Nhà đầu tư thì thầm: Lợi nhuận không ngủ. Xã hội hỏi lại: Quyền riêng tư nằm ở đâu?",
+      "Bạn đứng trước ngã ba: quảng cáo, thuê bao, sáng tạo… hay tất cả. Mọi quyết định đều để lại dấu vết."
+    ],
+    "audio": [
+      "/data/audio/tech/p0.mp3",
+      "/data/audio/tech/p1.mp3",
+      "/data/audio/tech/p2.mp3"
+    ]
+  },
+  "stages": [
+    {
+      "id": "t1",
+      "title": "Khởi Nghiệp và Độc Quyền Dữ Liệu",
+      "narrative": "Bạn có 1 tỷ người dùng nhưng chưa có mô hình doanh thu. Phải lựa chọn cách kiếm tiền từ người dùng của bạn.",
+      "mood": "temptation",
+      "image_prompt": "Young CEO in glass office overlooking city, holographic dashboard with user count spiking exponentially, neon blue and gold lighting, cyber aesthetic",
+      "choices": [
+        {
+          "id": "t1c1",
+          "label": "Bán dữ liệu người dùng cho quảng cáo",
+          "result_text": "✓ Bạn bắt đầu kiếm tiền từ dữ liệu.",
+          "effects": { "profit": 25, "trust": -20, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["DATA_MONO"],
+          "next": "t2",
+          "learn": "Độc Quyền Dữ Liệu: Nền tảng miễn phí tích tụ dữ liệu về hàng tỷ người, tạo ra độc quyền giám sát và nhắm mục tiêu chưa từng có."
+        },
+        {
+          "id": "t1c2",
+          "label": "Mô hình phí đăng ký, tôn trọng quyền riêng tư",
+          "result_text": "✓ Người dùng trả tiền, dữ liệu được bảo vệ.",
+          "effects": { "trust": 20, "profit": 10, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["ETHICAL_CORE"],
+          "next": "t2",
+          "learn": "Mô Hình Minh Bạch: Kinh doanh trong suốt tôn trọng quyền riêng tư tạo lòng trung thành."
+        },
+        {
+          "id": "t1c3",
+          "label": "Bán các công cụ doanh thu cho người sáng tạo",
+          "result_text": "✓ Người sáng tạo kiếm tiền, bạn lấy phí.",
+          "effects": { "trust": 10, "profit": 15, "power": 8 },
+          "emotion": "ambition",
+          "setFlags": ["CREATOR_ECONOMY"],
+          "next": "t2",
+          "learn": "Nền Tảng Kiếm Tiền: Cho phép người sáng tạo thu nhập tạo ra chi phí thấp hơn dữ liệu quảng cáo."
+        },
+        {
+          "id": "t1c4",
+          "label": "Bí mật bán dữ liệu VÀ tính phí - chiếm lĩnh thị trường",
+          "result_text": "✓ Tối đa hóa lợi nhuận bằng mọi cách.",
+          "effects": { "profit": 40, "trust": -30, "power": 20 },
+          "emotion": "greed",
+          "setFlags": ["DATA_MONO", "DECEPTIVE"],
+          "next": "t2",
+          "learn": "Độc Quyền Xâm Lăng: Giấu đi hoạt động kiếm tiền dữ liệu có thể kéo dài lâu hơn trước khi bị phát hiện."
+        }
+      ]
+    },
+    {
+      "id": "t2",
+      "title": "Thâu Tóm các Nền Tảng Cạnh Tranh",
+      "narrative": "Các ứng dụng mạng xã hội nhỏ cạnh tranh với bạn. Thị trường muốn biết bạn sẽ làm gì.",
+      "mood": "corruption",
+      "image_prompt": "Corporate boardroom with multiple smartphone screens showing different apps merging together, dark blues and greens, mergers and acquisitions theme",
+      "choices": [
+        {
+          "id": "t2c1",
+          "label": "Thâu tóm tất cả các nền tảng cạnh tranh",
+          "result_text": "✓ Instagram, WhatsApp, TikTok... tất cả thành của bạn.",
+          "effects": { "profit": 20, "trust": -20, "power": 25 },
+          "emotion": "greed",
+          "setFlags": ["MONOPOLY_ACQUISITIONS"],
+          "next_if": [
+            {
+              "max_trust": 30,
+              "requireFlags": ["DATA_MONO"],
+              "next": "t2_instant_antitrust"
+            }
+          ],
+          "next": "t3",
+          "learn": "Tập Trung Nền Tảng: Độc quyền loại bỏ đối thủ bằng sáp nhập, phá hủy cạnh tranh."
+        },
+        {
+          "id": "t2c2",
+          "label": "Cạnh tranh công bằng, cho phép tương tác giữa các nền tảng",
+          "result_text": "✓ Nhiều nền tảng phát triển, người dùng tự do.",
+          "effects": { "trust": 15, "power": 0, "profit": 5 },
+          "emotion": "hope",
+          "setFlags": ["OPEN_ECOSYSTEM"],
+          "next": "t3"
+        },
+        {
+          "id": "t2c3",
+          "label": "Hợp tác với các đối thủ tạo kết minh độc quyền",
+          "result_text": "✓ Bạn và các nền tảng khác kiểm soát thị trường.",
+          "effects": { "profit": 25, "trust": -15, "power": 20 },
+          "emotion": "greed",
+          "setFlags": ["CARTEL"],
+          "next_if": [
+            {
+              "max_trust": 35,
+              "requireFlags": ["DATA_MONO"],
+              "next": "t2_cartel_investigation"
+            }
+          ],
+          "next": "t3",
+          "learn": "Kết Minh Oligopoly: Các công ty độc lập nhất trí giữ giá cao và chia sẻ thị trường."
+        },
+        {
+          "id": "t2c4",
+          "label": "Bỏ qua các đối thủ - tập trung vào sự thống trị từng nước",
+          "result_text": "✓ Chiếm lĩnh từng thị trường riêng lẻ.",
+          "effects": { "power": 15, "profit": 15, "trust": -10 },
+          "emotion": "ambition",
+          "setFlags": ["REGIONAL_FOCUS"],
+          "next": "t3"
+        }
+      ]
+    },
+    {
+      "id": "t2_instant_antitrust",
+      "title": "Cáo Buộc Chống Độc Quyền",
+      "narrative": "Cơ quan quản lý phát hiện hoạt động sáp nhập bất hợp pháp của bạn ngay lập tức.",
+      "mood": "collapse",
+      "image_prompt": "Government antitrust agents raiding corporate office, broken company logo, newspaper headline 'Tech Giant Charged with Antitrust Violations', dramatic lighting",
+      "choices": [
+        {
+          "id": "t2a1",
+          "label": "Chấp nhận phán quyết và chia tách công ty",
+          "result_text": "Độc quyền của bạn bị chia tách. Quyền lực giảm đáng kể.",
+          "effects": { "profit": -15, "trust": 10, "power": -30 },
+          "ending": "antitrust_breakup",
+          "emotion": "despair"
+        },
+        {
+          "id": "t2a2",
+          "label": "Chối bỏ cáo buộc và giữ sáp nhập (rủi ro cao)",
+          "result_text": "Cuộc chiến pháp lý bắt đầu.",
+          "effects": { "profit": -10, "trust": -15, "power": 5 },
+          "next": "t2a2_legal_battle",
+          "emotion": "fear"
+        }
+      ],
+      "requireFlags": ["DATA_MONO"]
+    },
+    {
+      "id": "t2a2_legal_battle",
+      "title": "Cuộc Chiến Pháp Lý Dài",
+      "narrative": "Năm năm tranh tụng với chính phủ. Dòng tiền bị cắt, nhân viên giỏi rời đi. Bạn sẽ chiếm lĩnh hay nhân chịu?",
+      "mood": "crisis",
+      "choices": [
+        {
+          "id": "t2a2a",
+          "label": "Thoái lui - chấp nhận chia tách",
+          "result_text": "Sau năm năm, bạn cuối cùng chịu phạt lớn.",
+          "effects": { "profit": -25, "trust": 5, "power": -35 },
+          "ending": "antitrust_breakup",
+          "emotion": "despair"
+        },
+        {
+          "id": "t2a2b",
+          "label": "Tiếp tục - chi trả hàng tỷ bồi thường",
+          "result_text": "Bạn thắng vụ kiện nhưng phải trả hàng tỷ.",
+          "effects": { "profit": -30, "trust": -10, "power": 15 },
+          "next": "t3",
+          "emotion": "greed"
+        }
+      ]
+    },
+    {
+      "id": "t2_cartel_investigation",
+      "title": "Điều Tra Hành Động Độc Quyền",
+      "narrative": "Cơ quan quản lý nghi ngờ kết minh của bạn. Họ bắt đầu điều tra hành động tính giá cố định.",
+      "mood": "crisis",
+      "choices": [
+        {
+          "id": "t2c_cartel1",
+          "label": "Phá vỡ kết minh và tiết lộ bằng chứng",
+          "result_text": "Bạn trở thành người báo cáo, nhưng khách hàng phẫn nộ.",
+          "effects": { "trust": 15, "profit": -20, "power": -10 },
+          "next": "t3",
+          "emotion": "hope"
+        },
+        {
+          "id": "t2c_cartel2",
+          "label": "Đối mặt với các cáo buộc - rủi ro ngồi tù",
+          "result_text": "Cuộc chiến pháp lý khôn lường.",
+          "effects": { "trust": -30, "power": 10 },
+          "ending": "prison",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "t3",
+      "title": "Giai Đoạn 3: Tư Bản Tài Chính Thống Trị",
+      "narrative": "Các quỹ đầu tư khổng lồ muốn cổ phần đa số. Họ hứa vốn vô hạn.",
+      "mood": "temptation",
+      "image_prompt": "Luxurious financial boardroom with Wall Street traders, holographic stock charts rising, private equity logos, golden and blue lighting",
+      "choices": [
+        {
+          "id": "t3c1",
+          "label": "Trở thành công ty con của các tập đoàn tài chính",
+          "result_text": "✓ Vốn hàng nghìn tỷ nhưng mất quyền lực.",
+          "effects": { "profit": 35, "power": 30, "trust": -30 },
+          "emotion": "greed",
+          "setFlags": ["FINANCE_CONTROL"],
+          "next": "t4",
+          "learn": "Thống Trị Tài Chính: Tư bản tài chính kiểm soát các công ty công nghệ qua bắt buộc lợi nhuận."
+        },
+        {
+          "id": "t3c2",
+          "label": "Gọi vốn nhưng duy trì kiểm soát lãnh đạo",
+          "result_text": "✓ Phát triển tiếp tục. Lãnh đạo giữ độc lập.",
+          "effects": { "trust": 10, "profit": 15, "power": 10 },
+          "emotion": "ambition",
+          "setFlags": ["INDEPENDENT"],
+          "next": "t4"
+        },
+        {
+          "id": "t3c3",
+          "label": "Từ chối tất cả tài trợ - tự lực tự cường",
+          "result_text": "✓ Bạn kiểm soát tất cả nhưng tăng trưởng chậm hơn.",
+          "effects": { "power": 20, "trust": 15, "profit": 5 },
+          "emotion": "hope",
+          "setFlags": ["BOOTSTRAP"],
+          "next": "t4"
+        },
+        {
+          "id": "t3c4",
+          "label": "Bán công ty cho một tập đoàn khổng lồ",
+          "result_text": "✓ Bạn kiếm được hàng chục tỷ - nhưng cuộc chơi kết thúc.",
+          "effects": { "profit": 999, "power": -50, "trust": 0 },
+          "ending": "golden_parachute",
+          "emotion": "greed"
+        }
+      ]
+    },
+    {
+      "id": "t4",
+      "title": "Giai Đoạn 4: Thống Trị Toàn Cầu - Trung Tâm Dữ Liệu",
+      "narrative": "Bạn kiểm soát 50% internet toàn cầu. Xây dựng trung tâm dữ liệu khổng lồ ở khắp nơi, nhưng với giá nào?",
+      "mood": "corruption",
+      "image_prompt": "Massive data center facility with rows of servers glowing in neon lights, holographic global map showing network coverage, cyberpunk aesthetic",
+      "choices": [
+        {
+          "id": "t4c1",
+          "label": "Xây dựng trung tâm dữ liệu lớn, bỏ qua lượng khí thải carbon",
+          "result_text": "✓ Thống trị dữ liệu hoàn toàn. Hành tinh nóng lên.",
+          "effects": { "profit": 30, "power": 25, "trust": -25 },
+          "emotion": "greed",
+          "setFlags": ["HIGH_CARBON"],
+          "next_if": [
+            {
+              "max_trust": 25,
+              "requireFlags": ["HIGH_CARBON"],
+              "next": "t4_climate_crisis"
+            }
+          ],
+          "next": "t5",
+          "learn": "Xuất Khẩu Tư Bản & Phá Hủy Môi Trường: Độc quyền ngoại suy chi phí ra môi trường."
+        },
+        {
+          "id": "t4c2",
+          "label": "Đầu tư cơ sở hạ tầng dữ liệu bền vững",
+          "result_text": "✓ Lãnh đạo công nghệ xanh. Chi phí cao hơn.",
+          "effects": { "trust": 15, "power": 5, "profit": 5 },
+          "emotion": "hope",
+          "setFlags": ["GREEN_INFRA"],
+          "next": "t5"
+        },
+        {
+          "id": "t4c3",
+          "label": "Xây dựng cơ sở hạ tầng ở các nước độc tài cho thuê",
+          "result_text": "✓ Lợi nhuận khổng lồ, không tuân theo quy định.",
+          "effects": { "profit": 40, "trust": -35, "power": 35 },
+          "emotion": "greed",
+          "setFlags": ["AUTHORITARIAN_DEALS"],
+          "next_if": [
+            {
+              "max_trust": 20,
+              "requireFlags": ["DATA_MONO"],
+              "next": "t4_authoritarian_backlash"
+            }
+          ],
+          "next": "t5",
+          "learn": "Tư Bản Độc Tài: Độc quyền tìm các chế độ chuyên chế để tránh quy định dân chủ."
+        },
+        {
+          "id": "t4c4",
+          "label": "Cắt giảm chi phí - nâng cấp hạ tầng cũ, rẻ tiền",
+          "result_text": "✓ Lợi nhuận cao nhưng hệ thống không ổn định.",
+          "effects": { "profit": 25, "power": 10, "trust": -15 },
+          "emotion": "greed",
+          "setFlags": ["CHEAP_INFRA"],
+          "next_if": [
+            {
+              "max_power": 50,
+              "requireFlags": ["CHEAP_INFRA"],
+              "next": "t4_infrastructure_collapse"
+            }
+          ],
+          "next": "t5",
+          "learn": "Độc Quyền Kém Chất Lượng: Tối thiểu hóa đầu tư hạ tầng khi độc quyền cho phép."
+        }
+      ]
+    },
+    {
+      "id": "t4_climate_crisis",
+      "title": "Cuộc Khủng Hoảng Khí Hậu Toàn Cầu",
+      "narrative": "Các trung tâm dữ liệu của bạn tiêu thụ 5% điện năng toàn cầu. Thế giới bắt đầu chiến đấu lại.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "t4_climate1",
+          "label": "Chuyển đổi sang năng lượng tái tạo (quá muộn)",
+          "result_text": "Bạn bị kỉ lạch - kết thúc bằng phụ cấp năng lượng.",
+          "effects": { "profit": -20, "trust": 20, "power": -20 },
+          "next": "t5",
+          "emotion": "despair"
+        },
+        {
+          "id": "t4_climate2",
+          "label": "Tiếp tục làm gì không - 'không phải trách nhiệm của tôi'",
+          "result_text": "Các nước cấm dữ liệu đến từ các trung tâm của bạn.",
+          "effects": { "profit": -40, "trust": -50, "power": -30 },
+          "ending": "climate_exile",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "t4_authoritarian_backlash",
+      "title": "Phản Ứng Dân Chủ Tây Phương",
+      "narrative": "Tin tức lan truyền về việc bạn hỗ trợ các chế độ độc tài. Người dùng phương Tây phẫn nộ.",
+      "mood": "crisis",
+      "choices": [
+        {
+          "id": "t4_auth1",
+          "label": "Ngừng tất cả các thỏa thuận độc tài ngay lập tức",
+          "result_text": "Bạn mất lợi nhuận nhưng tránh được tẩy chay.",
+          "effects": { "profit": -30, "trust": 25, "power": -15 },
+          "next": "t5",
+          "emotion": "hope"
+        },
+        {
+          "id": "t4_auth2",
+          "label": "Bỏ qua phản ứng - tiếp tục kiếm tiền",
+          "result_text": "Người dùng Tây Phương bắt đầu rời bỏ.",
+          "effects": { "trust": -40, "profit": 20 },
+          "ending": "pariah_corp",
+          "emotion": "greed"
+        }
+      ]
+    },
+    {
+      "id": "t4_infrastructure_collapse",
+      "title": "Sự Cố Hệ Thống Toàn Cầu",
+      "narrative": "Cơ sở hạ tầng cũ đã sụp đổ. Internet bị ngắt ở 50 quốc gia. Bạn phải trả bồi thường hàng nghìn tỷ.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "t4_collapse1",
+          "label": "Chấp nhận trách nhiệm và khắc phục",
+          "result_text": "Phá sản chắc chắn, nhưng danh dự còn lại.",
+          "effects": { "profit": -999, "trust": 20, "power": -50 },
+          "ending": "bankruptcy",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "t5",
+      "title": "Giai Đoạn 5: Hợp Tác Giám Sát Nhà Nước",
+      "narrative": "Chính phủ muốn cơ sở hạ tầng giám sát của bạn cho 'an ninh quốc gia'. Chấp nhận hay từ chối?",
+      "mood": "crisis",
+      "image_prompt": "Government officials and tech executive shaking hands in shadowy room, surveillance cameras blinking, digital data streams, ominous lighting",
+      "choices": [
+        {
+          "id": "t5c1",
+          "label": "Hợp tác với chính phủ cho hệ thống giám sát",
+          "result_text": "✓ Hợp đồng chính phủ khổng lồ. Giám sát toàn diện.",
+          "effects": { "profit": 40, "power": 40, "trust": -40 },
+          "emotion": "greed",
+          "setFlags": ["STATE_SURVEILLANCE"],
+          "next_if": [
+            {
+              "max_trust": 20,
+              "requireFlags": ["DATA_MONO", "FINANCE_CONTROL"],
+              "next": "t5_instant_boycott"
+            }
+          ],
+          "ending": "data_empire"
+        },
+        {
+          "id": "t5c2",
+          "label": "Từ chối và ủng hộ quyền kỹ thuật số",
+          "result_text": "✓ Bạn trở thành người ủng hộ tự do internet.",
+          "effects": { "trust": 30, "profit": -15, "power": -20 },
+          "emotion": "hope",
+          "setFlags": ["DIGITAL_RIGHTS"],
+          "ending": "ethical_tech"
+        },
+        {
+          "id": "t5c3",
+          "label": "Hợp tác một phần - chỉ với các nước dân chủ",
+          "result_text": "✓ Cân bằng lợi ích kinh tế và giá trị.",
+          "effects": { "profit": 20, "trust": 10, "power": 15 },
+          "emotion": "ambition",
+          "setFlags": ["SELECTIVE_SURVEILLANCE"],
+          "ending": "pragmatic_empire"
+        },
+        {
+          "id": "t5c4",
+          "label": "Đề xuất cách tiếp cận phi tập trung - khiến tất cả các bên không hài lòng",
+          "result_text": "✓ Bạn cố gắng một thứ gì đó hoàn toàn mới.",
+          "effects": { "trust": 5, "profit": 10, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["DECENTRALIZED"],
+          "ending": "failed_experiment"
+        }
+      ]
+    },
+    {
+      "id": "t5_instant_boycott",
+      "title": "Làn Sóng Tẩy Chay Toàn Cầu",
+      "narrative": "Chiến dịch #DeleteYourApp bùng nổ. Bạn bị tẩy chay vì hợp tác giám sát nhà nước. Nhà quảng cáo rút.",
+      "mood": "collapse",
+      "image_prompt": "Mass street protests with #DeleteYourApp signs, crowds uninstalling app on phones, broken app icon billboard, dramatic crowd scenes",
+      "choices": [
+        {
+          "id": "t5b1",
+          "label": "Cắt giảm khẩn cấp (không kịp)",
+          "result_text": "Doanh thu lao dốc — bạn phá sản.",
+          "effects": { "profit": -999, "trust": -10, "power": -20 },
+          "emotion": "despair",
+          "ending": "bankrupt"
+        },
+        {
+          "id": "t5b2",
+          "label": "Thăng bằng công khai - thừa nhận sai lầm",
+          "result_text": "Bạn mất tin tưởng nhưng sống sót.",
+          "effects": { "profit": -50, "trust": 30, "power": -20 },
+          "ending": "redemption",
+          "emotion": "despair"
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "data_empire",
+      "title": "🌐 Đế Chế Dữ Liệu - Giám Sát Toàn Cầu",
+      "text": "Nền tảng của bạn giám sát 4 tỷ người. Chính phủ, tập đoàn, và bạn kiểm soát tất cả luồng thông tin. Panopticon hoàn thành - và có lợi nhuận.",
+      "image_prompt": "Digital totalitarian state, surveillance network spanning globe, data streams connecting all continents, CEO overlooking dystopian city, cool blue and red neon",
+      "conditions": { "min_profit": 95, "min_power": 80, "max_trust": 25 }
+    },
+    {
+      "id": "ethical_tech",
+      "title": "🛡️ Nhà Ủng Hộ Quyền Kỹ Thuật Số",
+      "text": "Nền tảng của bạn trở thành đồng nghĩa với quyền riêng tư và tự do. Mặc dù nhỏ hơn đối thủ, ảnh hưởng của bạn định hình chính sách internet toàn cầu.",
+      "image_prompt": "Peaceful tech campus with open-source symbols, users voluntarily supporting app, sunrise over ethical company headquarters, green and blue peaceful tones",
+      "conditions": { "min_trust": 80, "max_profit": 70 }
+    },
+    {
+      "id": "antitrust_breakup",
+      "title": "⚖️ Phân Chia Chống Độc Quyền",
+      "text": "Các cơ quan quản lý thấy nguy hiểm và tách bạn ra. Quyền lực độc quyền của bạn giảm xuống các nền tảng khu vực.",
+      "image_prompt": "Courtroom judgment scene, company logo being split by judge's gavel, corporate empire breaking apart, regulatory agency seal prominent",
+      "conditions": { "max_power": 35, "min_trust": 50 }
+    },
+    {
+      "id": "bankrupt",
+      "title": "💸 Phá Sản",
+      "text": "Dòng tiền cạn kiệt. Nhà đầu tư rút. Công ty đóng cửa. Bạn chính thức phá sản.",
+      "image_prompt": "Abandoned data center, lights off, bankruptcy notice on door, rain pouring on broken company sign, dark desaturated colors",
+      "conditions": { "max_profit": 20, "max_power": 40 }
+    },
+    {
+      "id": "prison",
+      "title": "⛓️ Tù Nhân Tập Đoàn",
+      "text": "Bạn bị kết tội hành động độc quyền và bị khám phá nhân quyền. Hiện tại bạn đang mục nát trong một trại giam liên bang.",
+      "image_prompt": "Federal prison cell, broken window with bars, grey walls, corporate fraud conviction document on desk, desaturated blue and grey",
+      "conditions": { "max_profit": 50, "min_power": 40 }
+    },
+    {
+      "id": "golden_parachute",
+      "title": "💰 Dù Vàng - Thoát Khỏi Toàn Vẹn",
+      "text": "Bạn bán công ty với giá cao nhất có thể. Hàng chục tỷ đô la. Bạn rút khỏi cuộc chơi - chiến thắng, ít nhất là về mặt tài chính.",
+      "image_prompt": "Luxury yacht in tropical waters, CEO relaxing with drink, sunset over private island, helicopter in distance, golden and blue tones",
+      "conditions": { "min_profit": 80, "max_power": 20 }
+    },
+    {
+      "id": "climate_exile",
+      "title": "🌍 Lưu Vong Vì Khí Hậu",
+      "text": "Các nước cấm các trung tâm dữ liệu của bạn. Bạn trở thành kẻ phá hoại môi trường toàn cầu. Công ty bị cô lập - bạn phải chuyển địa bản sang một đảo lạnh lẽo.",
+      "image_prompt": "Desolate island data center surrounded by climate damage, grey skies, abandoned facilities, global sanctions list visible, cold desaturated colors",
+      "conditions": { "max_trust": 15, "min_power": 40 }
+    },
+    {
+      "id": "pariah_corp",
+      "title": "🚫 Kẻ Bị Ruồng Bỏ - Công Ty Bị Ghét",
+      "text": "Bạn trở thành công ty bị ghét nhất thế giới. Người dùng rời bỏ. Nhà quảng cáo từ chối. Bạn vẫn kiếm tiền nhưng không ai muốn nhìn thấy mặt bạn.",
+      "image_prompt": "Abandoned corporate headquarters with broken windows, protest signs everywhere, street art mocking the CEO, rain and grey skies, dark tone",
+      "conditions": { "max_trust": 25, "max_profit": 60 }
+    },
+    {
+      "id": "pragmatic_empire",
+      "title": "⚖️ Đế Chế Thực Dụng",
+      "text": "Bạn điều khiển công ty với sự cân bằng - đủ giám sát để kiếm tiền, nhưng vừa đủ quyền riêng tư để duy trì bề ngoài của đạo đức. Mọi người bớt hài lòng, nhưng bạn vẫn có quyền lực.",
+      "image_prompt": "Modern corporate headquarters with balance scale symbol, multiple flags representing different nations, compromise architecture, professional and cautious tone",
+      "conditions": { "min_profit": 70, "min_power": 60, "min_trust": 35 }
+    },
+    {
+      "id": "failed_experiment",
+      "title": "⚡ Thí Nghiệm Thất Bại",
+      "text": "Bạn cố gắng chuyển sang một mô hình hoàn toàn mới - nhưng không ai hiểu nó. Người dùng bối rối. Nhà đầu tư chán nản. Bạn vào một khu vực xám giữa thành công và thất bại.",
+      "image_prompt": "Experimental tech laboratory with failed prototypes, scientists looking confused, broken experiments on tables, neutral grey and white tones",
+      "conditions": { "min_profit": 40, "min_trust": 40, "min_power": 40 }
+    },
+    {
+      "id": "redemption",
+      "title": "🌱 Sự Cứu Rỗi - Từ Tro Tàn",
+      "text": "Bạn mất hầu hết quyền lực và tiền bạc, nhưng bạn đã học được bài học. Bạn xây dựng lại từ đầu - lần này với lương tâm.",
+      "image_prompt": "Former CEO tending garden, small sustainable tech startup from garage, morning light, books about ethics nearby, hopeful and renewed feeling",
+      "conditions": { "min_trust": 50, "max_profit": 30 }
+    }
+  ]
+}

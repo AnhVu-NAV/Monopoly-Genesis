@@ -1,0 +1,39 @@
+{
+  "industries": [
+    {
+      "id": "steel",
+      "name": "🏭 Công Nghiệp Thép",
+      "intro": "Công nghiệp nặng cổ điển - tích tụ tư bản, hình thành tổ chức độc quyền",
+      "picture": "data/img/steel.png",
+      "storyPath": "/data/story_steel.json"
+    },
+    {
+      "id": "pharma",
+      "name": "💊 Ngành Dược Phẩm",
+      "intro": "Độc quyền sáng chế, tư bản tài chính, R&D cao",
+      "picture": "data/img/pharma.png",
+      "storyPath": "/data/story_pharma.json"
+    },
+    {
+      "id": "tech",
+      "name": "📱 Big Tech - Công Nghệ Lớn",
+      "intro": "Độc quyền dữ liệu, hiệu ứng mạng, thống trị nền tảng",
+      "picture": "data/img/tech.png",
+      "storyPath": "/data/story_tech.json"
+    },
+    {
+      "id": "diversify",
+      "name": "🌍 Đa Ngành – Siêu Tập Đoàn",
+      "intro": "Bạn không chỉ muốn làm 1 ngành. Bạn muốn sở hữu nhiều ngành cùng lúc. Mục tiêu cuối cùng: dựng nên 1 siêu tập đoàn đa lõi với quyền lực vượt biên giới quốc gia.",
+      "picture": "data/img/diversify.png",
+      "storyPath": "/data/story_diversify.json"
+    },
+    {
+      "id": "supplychain",
+      "name": "🔗 Chuỗi Cung Ứng Toàn Cầu",
+      "intro": "Bạn không chỉ tối ưu. Bạn muốn CHI PHỐI luồng hàng hóa thế giới. Container – vận tải – kho – port – customs. Mục tiêu cuối cùng: kiểm soát CHUỖI GIÁ TRỊ TOÀN CẦU.",
+      "picture": "data/img/supplychain.png",
+      "storyPath": "/data/story_supplychain.json"
+    }
+  ]
+}

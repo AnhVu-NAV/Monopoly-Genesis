@@ -1,0 +1,1120 @@
+{
+  "schema_version": "1.1",
+  "industry_id": "steel",
+  "name": "🏭 Công Nghiệp Thép - Độc Quyền Cổ Điển",
+  "intro": "Năm 1890. Bạn khởi nghiệp với một xưởng thép nhỏ. Cạnh tranh rất gay gắt, giá thép rơi tự do.",
+  "initial_stats": { "profit": 30, "trust": 50, "power": 20 },
+  "prologue": {
+    "title": "Lò nung và đường ray",
+    "paragraphs": [
+      "Từ quặng đỏ đến thép xanh, công nghiệp nặng rèn hình đô thị.",
+      "Nước, than, điện, và khí thải — mọi thứ đều có giá.",
+      "Bạn sẽ chạy theo sản lượng, theo chuẩn xanh, hay theo chuỗi giá trị nội địa? Thép định hình tương lai lâu hơn bạn nghĩ."
+    ],
+    "audio": [
+      "/data/audio/steel/p0.mp3",
+      "/data/audio/steel/p1.mp3",
+      "/data/audio/steel/p2.mp3"
+    ]
+  },
+  "stages": [
+    {
+      "id": "s1",
+      "title": "Thị Trường Tự Do Hoang Dại",
+      "narrative": "Xưởng thép của bạn đấu tranh trong thị trường cạnh tranh cao. Giá luôn giảm do dư thừa cung. Bạn cần đưa ra lựa chọn chiến lược.",
+      "mood": "crisis",
+      "image_prompt": "Industrial steel factory in 1890s, workers struggling, machines breaking down, financial crisis mood, sepia and rust colors",
+      "choices": [
+        {
+          "id": "s1c1",
+          "label": "Đầu tư vào máy móc hiện đại để cạnh tranh toàn năng lực",
+          "result_text": "✓ Nhà xưởng hiện đại hóa.",
+          "effects": { "profit": 15, "trust": 10 },
+          "emotion": "ambition",
+          "setFlags": ["MODERNIZED"],
+          "next": "s2a",
+          "learn": "Tích tụ Tư Bản: Sản xuất tập trung ở mức cao, các doanh nghiệp thành lập liên minh."
+        },
+        {
+          "id": "s1c2",
+          "label": "Thỏa thuận ngầm với đối thủ về giá bán",
+          "result_text": "✓ Cartel hình thành! Giá ổn định nhân tạo.",
+          "effects": { "profit": 25, "trust": -15, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["CARTEL_FORMED"],
+          "next": "s2b",
+          "learn": "Hình Thành Cartel: Các doanh nghiệp thỏa thuận kiểm soát thị trường - Cartel."
+        },
+        {
+          "id": "s1c3",
+          "label": "Mua các nhà xưởng nhỏ với giá rẻ để mở rộng",
+          "result_text": "✓ Bạn thâu tóm các đối thủ yếu.",
+          "effects": { "profit": 10, "power": 20, "trust": -10 },
+          "emotion": "greed",
+          "setFlags": ["ACQUISITIONS_EARLY"],
+          "next": "s2c",
+          "learn": "Tập Trung Sản Xuất: Loại bỏ đối thủ bằng M&A."
+        },
+        {
+          "id": "s1c4",
+          "label": "Thay đổi chiến lược - bán sản phẩm cao cấp cho thị trường hẹp",
+          "result_text": "✓ Bạn tìm thị trường ngách giàu có.",
+          "effects": { "profit": 5, "trust": 15, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["NICHE_MARKET"],
+          "next": "s2d",
+          "learn": "Chiến Lược Phòng Tự Vệ: Tránh cạnh tranh bằng chuyên biệt hóa."
+        }
+      ]
+    },
+    {
+      "id": "s2a",
+      "title": "Liên Minh Chế Tác - Độc Quyền Hoá",
+      "narrative": "Bạn hiện là nhà xưởng hiệu quả nhất. Các nhà sản xuất khác mời bạn gia nhập một liên minh kiểm soát toàn bộ sản xuất thép.",
+      "mood": "temptation",
+      "image_prompt": "Prosperous steel consortium meeting room, handshakes and treaties, industrial power consolidation, confident executives, gold and steel colors",
+      "choices": [
+        {
+          "id": "s2a1",
+          "label": "Gia nhập Syndicate để kiểm soát thị trường thống nhất",
+          "result_text": "✓ Bạn gia nhập Syndicate. Kiểm soát tuyệt đối.",
+          "effects": { "profit": 20, "power": 25, "trust": -15 },
+          "emotion": "greed",
+          "setFlags": ["SYNDICATE_MEMBER"],
+          "next": "s3a",
+          "learn": "Syndicate: Hình thức độc quyền cao hơn Cartel - thống nhất toàn bộ sản xuất."
+        },
+        {
+          "id": "s2a2",
+          "label": "Duy trì độc lập, tận dụng hiệu quả để thống trị lâm phạt",
+          "result_text": "✓ Bạn chiến thắng qua hiệu suất.",
+          "effects": { "trust": 10, "profit": 18, "power": 15 },
+          "emotion": "ambition",
+          "setFlags": ["INDEPENDENT_EFFICIENCY"],
+          "next": "s3a",
+          "learn": "Con Đường Độc Lập: Thắng cạnh tranh bằng hiệu quả."
+        },
+        {
+          "id": "s2a3",
+          "label": "Tuyên bố công khai hỗ trợ quy định chống độc quyền",
+          "result_text": "✓ Bạn trở thành người cải cách. Cartel sụp đổ.",
+          "effects": { "trust": 25, "profit": -10, "power": -10 },
+          "emotion": "hope",
+          "setFlags": ["REFORM_VOICE"],
+          "next": "s3b",
+          "learn": "Tiếng Nói Cải Cách: Từ bỏ độc quyền vì giá trị xã hội."
+        },
+        {
+          "id": "s2a4",
+          "label": "Bí mật giấu nhận từ liên minh nhưng mặc nhân các điều khoản",
+          "result_text": "✓ Bạn lừa dối mọi bên.",
+          "effects": { "profit": 22, "trust": -25, "power": 18 },
+          "emotion": "greed",
+          "setFlags": ["DECEPTIVE", "DOUBLE_AGENT"],
+          "next_if": [{ "max_trust": 25, "next": "s2a_scandal" }],
+          "next": "s3a",
+          "learn": "Lừa Dối Kinh Tế: Chơi cả hai bên để tối đa lợi nhuận."
+        }
+      ]
+    },
+    {
+      "id": "s2a_scandal",
+      "title": "Bê Bối Lừa Dối",
+      "narrative": "Phía liên minh phát hiện bạn bí mật bán hàng với giá thấp hơn. Họ yêu cầu bồi thường khổng lồ hoặc xin lỗi công khai.",
+      "mood": "crisis",
+      "choices": [
+        {
+          "id": "s2a_scand1",
+          "label": "Chấp nhận bồi thường và tiếp tục",
+          "result_text": "Bạn chảy máu tiền nhưng sống sót.",
+          "effects": { "profit": -15, "trust": -10, "power": 5 },
+          "next": "s3a",
+          "emotion": "despair"
+        },
+        {
+          "id": "s2a_scand2",
+          "label": "Tiết lộ bằng chứng liên minh gian lận để tự bảo vệ",
+          "result_text": "Cả hệ thống sụp đổ. Bạn trở thành người cứu rỗi.",
+          "effects": { "trust": 30, "profit": -20, "power": -15 },
+          "ending": "reform_hero",
+          "emotion": "hope"
+        }
+      ]
+    },
+    {
+      "id": "s2b",
+      "title": "Cartel Siêu Lợi Nhuận",
+      "narrative": "Cartel kiểm soát 80% thế giới thép. Giá cao nhân tạo, lợi nhuận khổng lồ. Nhưng cơ quan chống độc quyền bắt đầu điều tra.",
+      "mood": "corruption",
+      "image_prompt": "Cartel executives meeting in luxury room, stacks of money, newspapers about price fixing investigation, tense and secretive atmosphere",
+      "choices": [
+        {
+          "id": "s2b1",
+          "label": "Tiếp tục giấu đi - chi trả nhà chính trị để bảo vệ",
+          "result_text": "✓ Hối lộ các quan chức.",
+          "effects": { "profit": 25, "power": 20, "trust": -30 },
+          "emotion": "greed",
+          "setFlags": ["BRIBERY"],
+          "next_if": [{ "max_trust": 20, "next": "s2b_caught" }],
+          "next": "s3c",
+          "learn": "Tư Bản Chính Trị: Mua chuộc nhà nước để bảo vệ độc quyền."
+        },
+        {
+          "id": "s2b2",
+          "label": "Chấp nhận phán quyết - chia tách Cartel nhưng giữ lợi nhuận",
+          "result_text": "✓ Pháp luật thực thi nhưng bạn vẫn kiếm tiền.",
+          "effects": { "profit": 15, "trust": 10, "power": 10 },
+          "emotion": "ambition",
+          "setFlags": ["LEGAL_COMPLIANCE"],
+          "next": "s3c",
+          "learn": "Độc Quyền Hợp Pháp: Hoạt động trong luật nhưng vẫn quả quyết."
+        },
+        {
+          "id": "s2b3",
+          "label": "Tự nguyện giải thể Cartel - công ty bạn độc lập",
+          "result_text": "✓ Bạn thoát ra trước khi bị bắt.",
+          "effects": { "trust": 20, "profit": 10, "power": 15 },
+          "emotion": "hope",
+          "setFlags": ["EARLY_EXIT"],
+          "next": "s3d",
+          "learn": "Thoát Khỏi Độc Quyền: Rời khỏi Cartel trước khi bị phạt."
+        },
+        {
+          "id": "s2b4",
+          "label": "Chuyển các hoạt động sang nước ngoài để tránh pháp luật",
+          "result_text": "✓ Bạn chuyển sản xuất sang nước độc tài.",
+          "effects": { "profit": 30, "trust": -35, "power": 25 },
+          "emotion": "greed",
+          "setFlags": ["OFFSHORE_OPS"],
+          "next_if": [{ "max_trust": 15, "next": "s2b_sanctions" }],
+          "next": "s3c",
+          "learn": "Tư Bản Độc Tài: Tìm nước ngoài thoát luật."
+        }
+      ]
+    },
+    {
+      "id": "s2b_caught",
+      "title": "Bị Bắt Tại Trận - Các Quan Chức Tiết Lộ",
+      "narrative": "Một cách không ngờ, tờ báo tiết lộ toàn bộ lịch sử hối lộ của bạn. Cảnh sát bắt bạn.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "s2b_caught1",
+          "label": "Chấp nhận trách nhiệm - ngồi tù",
+          "result_text": "Bạn bị kết tội. Hình phạt: 5 năm tù.",
+          "effects": { "power": -50, "trust": -20, "profit": -30 },
+          "ending": "prison_time",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "s2b_sanctions",
+      "title": "Các Lệnh Trừng Phạt Kinh Tế Quốc Tế",
+      "narrative": "Nước phương Tây áp dụng lệnh trừng phạt. Các khách hàng từ chối. Công ty bạn bị cô lập.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "s2b_sanc1",
+          "label": "Tìm thị trường mới ở Đông Phương",
+          "result_text": "Bạn sống sót nhưng yếu hơn.",
+          "effects": { "profit": -15, "trust": -20, "power": -20 },
+          "next": "s3c",
+          "emotion": "despair"
+        },
+        {
+          "id": "s2b_sanc2",
+          "label": "Chấp nhận thất bại - công ty đóng cửa",
+          "result_text": "Phá sản.",
+          "effects": { "profit": -999, "power": -50 },
+          "ending": "bankruptcy",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "s2c",
+      "title": "Bộ Tộc Thép - Chiếu Sáng Qua M&A",
+      "narrative": "Bạn chi phối 3/4 sản xuất thép. Bạn kiểm soát chuỗi cung ứng toàn bộ. Các ngân hàng muốn hợp đồng với bạn.",
+      "mood": "temptation",
+      "image_prompt": "Dominant industrial empire with multiple factories, vertical integration diagram, CEO commanding massive network, power and dominance visualization",
+      "choices": [
+        {
+          "id": "s2c1",
+          "label": "Chuyên tâm vào kiểm soát sâu hơn - M&A ngân hàng",
+          "result_text": "✓ Bạn sáp nhập một ngân hàng địa phương.",
+          "effects": { "profit": 25, "power": 30, "trust": -20 },
+          "emotion": "greed",
+          "setFlags": ["FINANCE_INTEGRATION"],
+          "next": "s3a",
+          "learn": "Tư Bản Tài Chính: Sáp nhập ngân hàng để kiểm soát tài chính."
+        },
+        {
+          "id": "s2c2",
+          "label": "Tự nguyện chia tách trước khi bị pháp luật buộc",
+          "result_text": "✓ Chia tách trước khi bị buộc.",
+          "effects": { "profit": 10, "trust": 15, "power": 15 },
+          "emotion": "ambition",
+          "setFlags": ["VOLUNTARY_SPLIT"],
+          "next": "s3b",
+          "learn": "Chia Tách Tự Nguyện: Tách trước khi bị pháp luật buộc."
+        },
+        {
+          "id": "s2c3",
+          "label": "Mua các mạng lưới từ thiện để giữ hình ảnh tốt",
+          "result_text": "✓ Bạn hoạt động từ thiện nhưng vẫn độc quyền.",
+          "effects": { "trust": 15, "profit": 15, "power": 20 },
+          "emotion": "hope",
+          "setFlags": ["CHARITABLE_FACADE"],
+          "next": "s3b",
+          "learn": "Độc Quyền Từ Thiện: Giấu độc quyền bằng hoạt động từ thiện."
+        },
+        {
+          "id": "s2c4",
+          "label": "Bán từng công ty nhỏ cho các nhà đầu tư mới",
+          "result_text": "✓ Bạn rút khỏi M&A và tập trung sản xuất.",
+          "effects": { "trust": 15, "profit": 12, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["DECENTRALIZED_OWNERSHIP"],
+          "next": "s3d",
+          "learn": "Phân Tán Quyền Lực: Chia sẻ quyền lực để tránh độc quyền."
+        }
+      ]
+    },
+    {
+      "id": "s2d",
+      "title": "Thị Trường Cao Cấp - Danh Tiếng Đẳng Cấp",
+      "narrative": "Bạn bán thép cao cấp cho các công trình cầu, tòa nhà sang trọng. Danh tiếng, không độc quyền.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "s2d1",
+          "label": "Mở rộng - bán hàng cấp thấp giá cao bằng thương hiệu giả",
+          "result_text": "✓ Bạn gắn nhãn hàng rẻ với tên cao cấp.",
+          "effects": { "profit": 20, "trust": -25, "power": 5 },
+          "emotion": "greed",
+          "setFlags": ["LUXURY_FRAUD"],
+          "next_if": [{ "max_trust": 30, "next": "s2d_fraud_exposed" }],
+          "next": "s3b",
+          "learn": "Gian Lận Thương Hiệu: Bán hàng rẻ với tên cao cấp."
+        },
+        {
+          "id": "s2d2",
+          "label": "Đi sâu hơn vào ngách cao - đặc tính và dịch vụ tốt hơn",
+          "result_text": "✓ Bạn thành chuyên gia thép cực kỳ cao cấp.",
+          "effects": { "profit": 10, "trust": 20, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["LUXURY_EXPERT"],
+          "next": "s3b",
+          "learn": "Chuyên Gia Cao Cấp: Sâu hơn trong lĩnh vực cao cấp."
+        },
+        {
+          "id": "s2d3",
+          "label": "Hợp tác với các thương hiệu cao cấp thế giới",
+          "result_text": "✓ Bạn là nhà cung cấp thép cho Rolls Royce, Hermès, v.v.",
+          "effects": { "profit": 15, "trust": 15, "power": 10 },
+          "emotion": "ambition",
+          "setFlags": ["LUXURY_PARTNERSHIPS"],
+          "next": "s3d",
+          "learn": "Kết Nối Cao Cấp: Hợp tác với các thương hiệu hàng đầu."
+        },
+        {
+          "id": "s2d4",
+          "label": "Chuyên sản xuất cho công nghệ vũ trụ / y tế chiến lược",
+          "result_text": "✓ Bạn là nhà cung cấp chuyên môn chiến lược.",
+          "effects": { "profit": 12, "trust": 18, "power": 15 },
+          "emotion": "hope",
+          "setFlags": ["STRATEGIC_NICHE"],
+          "next": "s3d",
+          "learn": "Ngách Chiến Lược: Cấp cao cho ngành chiến lược."
+        }
+      ]
+    },
+    {
+      "id": "s2d_fraud_exposed",
+      "title": "Gian Lận Được Phát Hiện",
+      "narrative": "Các khách hàng phát hiện thép 'cao cấp' của bạn thực chất là hạng C. Các tòa nhà có vấn đề cấu trúc.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "s2d_fraud1",
+          "label": "Bồi thường khách hàng - sửa chữa các tòa nhà",
+          "result_text": "Bạn trả bồi thường khổng lồ.",
+          "effects": { "profit": -30, "trust": 10, "power": -10 },
+          "next": "s3b",
+          "emotion": "despair"
+        },
+        {
+          "id": "s2d_fraud2",
+          "label": "Chối bỏ và kiện khách hàng",
+          "result_text": "Cuộc chiến pháp lý - bạn thua.",
+          "effects": { "profit": -50, "trust": -40, "power": -20 },
+          "ending": "liability_hell",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "s3a",
+      "title": "Tư Bản Tài Chính Hội Nhập",
+      "narrative": "Các công ty đầu tư lớn đề nghị tài trợ khổng lồ - nhưng đòi kiểm soát ban giám đốc.",
+      "mood": "temptation",
+      "image_prompt": "Wall Street investment bankers meeting with steel CEO, financial contracts, luxury towers in background, golden and blue corporate aesthetic",
+      "choices": [
+        {
+          "id": "s3a1",
+          "label": "Chấp nhận đầu tư - hàng tỷ vốn chảy vào",
+          "result_text": "✓ Phố Wall sở hữu bạn.",
+          "effects": { "profit": 30, "power": 25, "trust": -25 },
+          "emotion": "greed",
+          "setFlags": ["FINANCE_CONTROLLED"],
+          "next": "s4a",
+          "learn": "Chiếm Đóng Tài Chính: Tư bản tài chính thống trị."
+        },
+        {
+          "id": "s3a2",
+          "label": "Từ chối - tự gọi vốn từ thị trường tư nhân",
+          "result_text": "✓ Duy trì độc lập nhưng tăng trưởng chậm.",
+          "effects": { "trust": 10, "profit": 10, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["INDEPENDENT_FUNDING"],
+          "next": "s4b",
+          "learn": "Tự Chủ Tài Chính: Độc lập khỏi ngân hàng."
+        },
+        {
+          "id": "s3a3",
+          "label": "Hợp tác với các nhà đầu tư nước ngoài để cân bằng",
+          "result_text": "✓ Bạn lấy vốn từ nhiều nguồn.",
+          "effects": { "profit": 20, "power": 15, "trust": 5 },
+          "emotion": "ambition",
+          "setFlags": ["DIVERSIFIED_INVESTORS"],
+          "next": "s4c",
+          "learn": "Đầu Tư Đa Dạng: Vốn từ nhiều nguồn khác nhau."
+        },
+        {
+          "id": "s3a4",
+          "label": "Chuyển công ty thành hợp tác xã nhân viên",
+          "result_text": "✓ Nhân viên sở hữu công ty.",
+          "effects": { "trust": 25, "profit": 5, "power": -10 },
+          "emotion": "hope",
+          "setFlags": ["WORKER_OWNED"],
+          "next": "s4d",
+          "learn": "Hợp Tác Xã: Nhân viên sở hữu và kiểm soát."
+        }
+      ]
+    },
+    {
+      "id": "s3b",
+      "title": "Công Ty Cải Cách Xã Hội",
+      "narrative": "Bạn chứng minh công ty có thể tồn tại với trách nhiệm xã hội. Nhưng các đối thủ vẫn kiếm được nhiều tiền hơn.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "s3b1",
+          "label": "Duy trì đạo đức - bỏ qua cơ hội M&A",
+          "result_text": "✓ Đạo đức là lợi nhuận dài hạn của bạn.",
+          "effects": { "trust": 20, "profit": 5, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["ETHICAL_COMMITMENT"],
+          "next": "s4d",
+          "learn": "Doanh Nhân Có Đạo Đức: Lợi nhuận dài hạn từ tin tưởng."
+        },
+        {
+          "id": "s3b2",
+          "label": "Dần dần chiếm lĩnh các công ty nhỏ - 'cho tốt'",
+          "result_text": "✓ Bạn lớn hơn dưới vỏ bọc từ thiện.",
+          "effects": { "profit": 15, "trust": -10, "power": 20 },
+          "emotion": "greed",
+          "setFlags": ["ETHICAL_FACADE_EXPANSION"],
+          "next": "s4a",
+          "learn": "Độc Quyền Từ Thiện: Tăng trưởng dưới vỏ bọc đạo đức."
+        },
+        {
+          "id": "s3b3",
+          "label": "Hợp tác với các tổ chức quốc tế để tài trợ cải cách",
+          "result_text": "✓ Bạn nhận được nguồn tài trợ từ thiện.",
+          "effects": { "trust": 15, "profit": 10, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["NGO_PARTNERSHIPS"],
+          "next": "s4d",
+          "learn": "Kết Nối Từ Thiện: Tài trợ từ các tổ chức quốc tế."
+        },
+        {
+          "id": "s3b4",
+          "label": "Chuyển sang kinh doanh xanh - chuyên sản xuất thép tái chế",
+          "result_text": "✓ Bạn dẫn đầu công nghiệp xanh.",
+          "effects": { "trust": 20, "profit": 5, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["GREEN_STEEL"],
+          "next": "s4e",
+          "learn": "Thép Xanh: Tái chế và năng lượng sạch."
+        }
+      ]
+    },
+    {
+      "id": "s3c",
+      "title": "Độc Quyền Toàn Cầu - Kiểm Soát Chặt",
+      "narrative": "Bạn kiểm soát 70% thế giới thép. Giá cả lệnh phục bạn. Nhưng cơ quan quản lý sắp tấn công.",
+      "mood": "corruption",
+      "choices": [
+        {
+          "id": "s3c1",
+          "label": "Tính chi phí chính trị - hối lộ cơ quan quản lý",
+          "result_text": "✓ Bạn mua chuộc các quan chức.",
+          "effects": { "profit": 25, "trust": -30, "power": 25 },
+          "emotion": "greed",
+          "setFlags": ["POLITICAL_CAPTURE"],
+          "next_if": [{ "max_trust": 15, "next": "s3c_exposed" }],
+          "next": "s4a",
+          "learn": "Tư Bản Chính Trị: Mua chuộc nhà nước."
+        },
+        {
+          "id": "s3c2",
+          "label": "Hợp pháp hóa độc quyền - thuê vận động viên chính trị",
+          "result_text": "✓ Bạn đổi quy luật.",
+          "effects": { "profit": 20, "power": 20, "trust": -20 },
+          "emotion": "greed",
+          "setFlags": ["LOBBYING_POWER"],
+          "next": "s4c",
+          "learn": "Cải Cách Pháp Luật: Thay đổi luật để hợp pháp hóa độc quyền."
+        },
+        {
+          "id": "s3c3",
+          "label": "Tự nguyện chia tách công ty để tránh cải cách",
+          "result_text": "✓ Bạn tách trước khi bị buộc.",
+          "effects": { "profit": 15, "trust": 15, "power": 15 },
+          "emotion": "ambition",
+          "setFlags": ["PREEMPTIVE_SPLIT"],
+          "next": "s4c",
+          "learn": "Chia Tách Chủ Động: Tách trước khi bị pháp luật."
+        },
+        {
+          "id": "s3c4",
+          "label": "Chuyển tất cả hoạt động sang nước độc tài",
+          "result_text": "✓ Bạn chuyển đi, doanh số thế giới giảm.",
+          "effects": { "profit": 30, "trust": -40, "power": 35 },
+          "emotion": "greed",
+          "setFlags": ["AUTHORITARIAN_RELOCATION"],
+          "next_if": [{ "max_trust": 10, "next": "s3c_exile" }],
+          "next": "s4a",
+          "learn": "Tư Bản Độc Tài: Tìm nước dễ bị hối lộ."
+        }
+      ]
+    },
+    {
+      "id": "s3c_exposed",
+      "title": "Bê Bối Tham Nhũng",
+      "narrative": "Báo chí phát hiện hối lộ của bạn. Công khai một bê bối lớn.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "s3c_exp1",
+          "label": "Từ chức và chấp nhận phạt",
+          "result_text": "Bạn rút lui khỏi kinh doanh.",
+          "effects": { "power": -50, "profit": -40, "trust": 10 },
+          "ending": "corruption_downfall",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "s3c_exile",
+      "title": "Lưu Vong Công Nghiệp",
+      "narrative": "Bạn bị loại khỏi thị trường phương Tây. Các khách hàng từ chối. Bạn bị cô lập tại một số ít nước.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "s3c_exile1",
+          "label": "Sống sót với doanh số yếu",
+          "result_text": "Cuộc sống chưa xong nhưng không còn quyền lực.",
+          "effects": { "profit": 10, "trust": -30, "power": -30 },
+          "next": "s4a",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "s3d",
+      "title": "Công Ty Độc Lập Vốn Nhân Viên",
+      "narrative": "Bạn chứng minh mô hình hợp tác xã hoạt động. Nhân viên sung sướng, lợi nhuận ổn định.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "s3d1",
+          "label": "Giữ nguyên - tăng trưởng bền vững",
+          "result_text": "✓ Mô hình xanh hiệu quả.",
+          "effects": { "trust": 20, "profit": 10, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["SUSTAINABLE_GROWTH"],
+          "next": "s4e",
+          "learn": "Tăng Trưởng Bền Vững: Lợi nhuận từ hạnh phúc nhân viên."
+        },
+        {
+          "id": "s3d2",
+          "label": "Mở rộng nhanh - tuyển nhân viên hợp đồng chứ không hợp tác",
+          "result_text": "✓ Tăng trưởng nhưng mất đạo đức.",
+          "effects": { "profit": 20, "trust": -15, "power": 10 },
+          "emotion": "greed",
+          "setFlags": ["EXPANSION_SHORTCUT"],
+          "next": "s4c",
+          "learn": "Thoả Hiệp Mô Hình: Hy sinh hợp tác để tăng trưởng."
+        },
+        {
+          "id": "s3d3",
+          "label": "Bán công ty cho một quỹ tư nhân",
+          "result_text": "✓ Bạn kiếm được nhưng mô hình bị phá hủy.",
+          "effects": { "profit": 40, "trust": -15, "power": -20 },
+          "ending": "sold_to_pe",
+          "emotion": "greed"
+        },
+        {
+          "id": "s3d4",
+          "label": "Toàn cầu hóa mô hình - mở chi nhánh ở các nước khác",
+          "result_text": "✓ Bạn dẫn phong trào hợp tác xã toàn cầu.",
+          "effects": { "trust": 25, "profit": 12, "power": 15 },
+          "emotion": "hope",
+          "setFlags": ["GLOBAL_COOP"],
+          "next": "s4e",
+          "learn": "Phong Trào Toàn Cầu: Hợp tác xã lan rộng."
+        }
+      ]
+    },
+    {
+      "id": "s4a",
+      "title": "Xuất Khẩu Tư Bản - Chiếu Sáng Nước Ngoài",
+      "narrative": "Thị trường nội địa bão hòa. Bạn mở rộng quốc tế - đầu tư ở thuộc địa và các nước đang phát triển.",
+      "mood": "corruption",
+      "image_prompt": "Colonial-style factories in developing nations, Western CEO overseeing operations, stark economic inequality, industrial exploitation scenes, oppressive tone",
+      "choices": [
+        {
+          "id": "s4a1",
+          "label": "Xây nhà máy ở Đông Nam Á với lao động rẻ",
+          "result_text": "✓ Lợi nhuận khổng lồ nhưng đạo đức rơi tự do.",
+          "effects": { "profit": 35, "trust": -30, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["SWEATSHOP_LABOR"],
+          "next_if": [{ "max_trust": 15, "next": "s4a_labor_uprising" }],
+          "next": "s5a",
+          "learn": "Xuất Khẩu Tư Bản: Độc quyền đi tìm lao động rẻ."
+        },
+        {
+          "id": "s4a2",
+          "label": "Đầu tư công bằng - tuân theo tiêu chuẩn lao động quốc tế",
+          "result_text": "✓ Chi phí cao hơn nhưng danh tiếng tốt.",
+          "effects": { "trust": 15, "profit": 15, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["FAIR_LABOR"],
+          "next": "s5d",
+          "learn": "Lao Động Công Bằng: Tuân theo quy chuẩn quốc tế."
+        },
+        {
+          "id": "s4a3",
+          "label": "Thành lập liên doanh với các địa phương",
+          "result_text": "✓ Chia sẻ quyền lực và lợi nhuận.",
+          "effects": { "profit": 20, "trust": 10, "power": 10 },
+          "emotion": "ambition",
+          "setFlags": ["JV_PARTNERSHIPS"],
+          "next": "s5c",
+          "learn": "Liên Doanh: Chia sẻ kiểm soát với đối tác địa phương."
+        },
+        {
+          "id": "s4a4",
+          "label": "Tặng nhà máy cho chính phủ địa phương - lấy doanh thu dài hạn",
+          "result_text": "✓ Quốc gia sở hữu nhưng bạn kiếm tiền.",
+          "effects": { "trust": 15, "profit": 25, "power": 5 },
+          "emotion": "ambition",
+          "setFlags": ["NATIONALIZED_FACTORIES"],
+          "next": "s5b",
+          "learn": "Doanh Thu Dài Hạn: Quốc gia sở hữu, bạn kiếm."
+        }
+      ]
+    },
+    {
+      "id": "s4a_labor_uprising",
+      "title": "Cuộc Nổi Dậy Lao Động",
+      "narrative": "Công nhân biểu tình và tổ chức. Báo chí phơi bày các nhà máy bóc lột. Bạn mất thị phần.",
+      "mood": "crisis",
+      "choices": [
+        {
+          "id": "s4a_lab1",
+          "label": "Nâng tiêu chuẩn lao động ngay lập tức",
+          "result_text": "Bạn giữ được nhà máy nhưng lợi nhuận giảm.",
+          "effects": { "profit": -20, "trust": 20, "power": -10 },
+          "next": "s5d",
+          "emotion": "hope"
+        },
+        {
+          "id": "s4a_lab2",
+          "label": "Rút khỏi nước đó - chuyển sang nước khác",
+          "result_text": "Bạn sống sót nhưng tiếng xấu theo.",
+          "effects": { "trust": -30, "profit": 5 },
+          "ending": "labor_pariah",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "s4b",
+      "title": "Tăng Trưởng Nội Địa - Nắm Bắt Thị Trường Mới",
+      "narrative": "Các thị trường nội địa còn nhiều cơ hội. Bạn đầu tư sâu vào các khu vực mới.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "s4b1",
+          "label": "Mua các công ty cạnh tranh tại các thị trường mới",
+          "result_text": "✓ Bạn mở rộng thị phần nội địa.",
+          "effects": { "profit": 18, "power": 15, "trust": -10 },
+          "emotion": "greed",
+          "setFlags": ["DOMESTIC_M&A"],
+          "next": "s5a",
+          "learn": "Mở Rộng Nội Địa: Thâu tóm các công ty cạnh tranh."
+        },
+        {
+          "id": "s4b2",
+          "label": "Đầu tư vào công nghệ mới để cải thiện chất lượng",
+          "result_text": "✓ Sản phẩm mới, danh tiếng cao.",
+          "effects": { "trust": 15, "profit": 15, "power": 8 },
+          "emotion": "hope",
+          "setFlags": ["INNOVATION_FOCUS"],
+          "next": "s5d",
+          "learn": "Đổi Mới: Chất lượng tốt hơn, danh tiếng cao."
+        },
+        {
+          "id": "s4b3",
+          "label": "Giao dịch với chính phủ - nhà cung cấp thép duy nhất",
+          "result_text": "✓ Hợp đồng chính phủ khổng lồ.",
+          "effects": { "profit": 25, "power": 20, "trust": -15 },
+          "emotion": "greed",
+          "setFlags": ["GOVERNMENT_MONOPOLY"],
+          "next": "s5a",
+          "learn": "Độc Quyền Nhà Nước: Nhà cung cấp chính phủ duy nhất."
+        },
+        {
+          "id": "s4b4",
+          "label": "Hợp tác với các cộng đồng địa phương - sản xuất bền vững",
+          "result_text": "✓ Bạn trở thành thương hiệu địa phương.",
+          "effects": { "trust": 20, "profit": 12, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["LOCAL_PARTNERSHIPS"],
+          "next": "s5e",
+          "learn": "Hợp Tác Địa Phương: Sản xuất bền vững cơ sở địa phương."
+        }
+      ]
+    },
+    {
+      "id": "s4c",
+      "title": "Độc Quyền Quốc Gia - Xây Dựng Ảnh Hưởng Chính Trị",
+      "narrative": "Bạn kiểm soát thị trường một quốc gia hoàn toàn. Chính phủ phụ thuộc vào bạn. Nhưng nguy hiểm đang tính.",
+      "mood": "corruption",
+      "choices": [
+        {
+          "id": "s4c1",
+          "label": "Tính chi phí chính trị - mua tranh cử để kiểm soát quy luật",
+          "result_text": "✓ Bạn kiểm soát cả nhà nước.",
+          "effects": { "profit": 25, "power": 30, "trust": -35 },
+          "emotion": "greed",
+          "setFlags": ["ELECTORAL_INFLUENCE"],
+          "next_if": [{ "max_trust": 15, "next": "s4c_coup" }],
+          "next": "s5a",
+          "learn": "Tư Bản Chính Trị: Kiểm soát cả nhà nước."
+        },
+        {
+          "id": "s4c2",
+          "label": "Hợp tác với chính phủ hiện tại - ổn định đôi bên",
+          "result_text": "✓ Cân bằng quyền lực.",
+          "effects": { "profit": 20, "power": 15, "trust": -10 },
+          "emotion": "ambition",
+          "setFlags": ["GOVERNMENT_PARTNERSHIP"],
+          "next": "s5a",
+          "learn": "Kết Nối Chính Phủ: Hợp tác ổn định."
+        },
+        {
+          "id": "s4c3",
+          "label": "Kiểu Thụ Động - Duy trì Độc Quyền mà không can thiệp chính trị",
+          "result_text": "✓ Bạn kiếm tiền mà không leo qua đầu.",
+          "effects": { "trust": 5, "profit": 18, "power": 10 },
+          "emotion": "ambition",
+          "setFlags": ["APOLITICAL"],
+          "next": "s5b",
+          "learn": "Độc Quyền Thầm Lặng: Kiếm tiền mà không gây chú ý."
+        },
+        {
+          "id": "s4c4",
+          "label": "Hỗ trợ các cuộc cải cách - tiếp tục kiếm tiền nhưng công bằng hơn",
+          "result_text": "✓ Bạn hỗ trợ cải cách từ bên trong.",
+          "effects": { "trust": 15, "profit": 12, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["REFORM_ALLY"],
+          "next": "s5d",
+          "learn": "Đồng Minh Cải Cách: Hỗ trợ cải cách từ bên trong."
+        }
+      ]
+    },
+    {
+      "id": "s4c_coup",
+      "title": "Đảo Chính Công Nghiệp",
+      "narrative": "Bạn hỗ trợ một đảo chính quân sự để kiểm soát. Nhưng quốc tế phản ứng.",
+      "mood": "collapse",
+      "choices": [
+        {
+          "id": "s4c_coup1",
+          "label": "Tàng nạp đảo chính - nói dối quốc tế",
+          "result_text": "Lệnh trừng phạt quốc tế.",
+          "effects": { "trust": -50, "power": -40, "profit": -30 },
+          "ending": "sanctioned_pariah",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "s4d",
+      "title": "Độc Quyền Tái Chế - Công Nghiệp Xanh",
+      "narrative": "Bạn có lợi thế: tất cả phế liệu thép đi qua lò của bạn. Bạn có độc quyền nguyên liệu.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "s4d1",
+          "label": "Nâng giá phế liệu - tối đa hóa lợi nhuận",
+          "result_text": "✓ Bạn trích xuất lợi nhuận từ nền kinh tế tuần hoàn.",
+          "effects": { "profit": 30, "trust": -20, "power": 15 },
+          "emotion": "greed",
+          "setFlags": ["RECYCLED_MONOPOLY"],
+          "next": "s5c",
+          "learn": "Độc Quyền Xanh: Kiểm soát nền kinh tế tuần hoàn."
+        },
+        {
+          "id": "s4d2",
+          "label": "Chuyên môn hóa - xây dựng chuỗi tuần hoàn phức tạp",
+          "result_text": "✓ Bạn là chuyên gia độc quyền về nền kinh tế tuần hoàn.",
+          "effects": { "trust": 15, "profit": 20, "power": 12 },
+          "emotion": "ambition",
+          "setFlags": ["CIRCULAR_EXPERT"],
+          "next": "s5e",
+          "learn": "Chuyên Gia Tuần Hoàn: Kiểm soát nền kinh tế tuần hoàn."
+        },
+        {
+          "id": "s4d3",
+          "label": "Cảnh Báo Công Bằng - Chia sẻ quy trình với các địa phương",
+          "result_text": "✓ Bạn chia sẻ công nghệ xanh.",
+          "effects": { "trust": 25, "profit": 10, "power": 5 },
+          "emotion": "hope",
+          "setFlags": ["GREEN_KNOWLEDGE_SHARE"],
+          "next": "s5e",
+          "learn": "Kỹ Thuật Xanh Chia Sẻ: Chia sẻ công nghệ xanh."
+        },
+        {
+          "id": "s4d4",
+          "label": "Độc Quyền Bằng Sáng Chế - Sở Hữu Tất Cả Công Nghệ Xanh",
+          "result_text": "✓ Bạn nắm giữ tất cả bằng sáng chế xanh.",
+          "effects": { "profit": 35, "trust": -25, "power": 20 },
+          "emotion": "greed",
+          "setFlags": ["GREEN_PATENTS"],
+          "next": "s5c",
+          "learn": "Độc Quyền Công Nghệ: Bằng sáng chế xanh độc quyền."
+        }
+      ]
+    },
+    {
+      "id": "s4e",
+      "title": "Toàn Cầu Hợp Tác Xã - Phong Trào",
+      "narrative": "Công ty hợp tác xã của bạn trở thành mô hình toàn cầu. Các nước khác muốn học hỏi.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "s4e1",
+          "label": "Bạn tự nguyện chia sẻ kiến thức miễn phí",
+          "result_text": "✓ Phong trào hợp tác xã lớn mạnh.",
+          "effects": { "trust": 30, "profit": 5, "power": 10 },
+          "emotion": "hope",
+          "setFlags": ["COOP_MOVEMENT"],
+          "next": "s5e",
+          "learn": "Phong Trào Hợp Tác: Chia sẻ kiến thức."
+        },
+        {
+          "id": "s4e2",
+          "label": "Bạn kinh doanh tư vấn - bán mô hình cho các công ty",
+          "result_text": "✓ Bạn kiếm tiền từ việc tư vấn.",
+          "effects": { "profit": 20, "trust": 10, "power": 5 },
+          "emotion": "greed",
+          "setFlags": ["COOP_CONSULTING"],
+          "next": "s5e",
+          "learn": "Tư Vấn Hợp Tác: Bán mô hình cho các công ty."
+        },
+        {
+          "id": "s4e3",
+          "label": "Tạo liên Minh Hợp Tác Xã Quốc Tế",
+          "result_text": "✓ Bạn thành lập kết minh toàn cầu.",
+          "effects": { "trust": 25, "profit": 12, "power": 15 },
+          "emotion": "hope",
+          "setFlags": ["GLOBAL_COOP_ALLIANCE"],
+          "next": "s5e",
+          "learn": "Kết Minh Hợp Tác: Liên Minh Hợp Tác Xã Toàn Cầu."
+        },
+        {
+          "id": "s4e4",
+          "label": "Thành Lập Ngân Hàng Hợp Tác Xã - Tài Chính Xã Hội",
+          "result_text": "✓ Bạn tạo lập tài chính xã hội.",
+          "effects": { "trust": 20, "profit": 15, "power": 12 },
+          "emotion": "hope",
+          "setFlags": ["SOCIAL_FINANCE"],
+          "next": "s5e",
+          "learn": "Tài Chính Xã Hội: Ngân Hàng Hợp Tác Xã Toàn Cầu."
+        }
+      ]
+    },
+    {
+      "id": "s5a",
+      "title": "Dung Hợp Nhà Nước - Quyền Lực Hoàn Toàn",
+      "narrative": "Khủng hoảng kinh tế. Chính phủ đề nghị hợp đồng quân sự độc quyền.",
+      "mood": "crisis",
+      "image_prompt": "Military weaponry manufacturing alongside steel production, government flags, warships, authoritarian regime, dark and ominous industrial landscape",
+      "choices": [
+        {
+          "id": "s5a1",
+          "label": "Ký hợp đồng độc quyền quân sự với nhà nước",
+          "result_text": "✓ Công ty là nhà cung cấp quân sự duy nhất.",
+          "effects": { "profit": 35, "power": 40, "trust": -40 },
+          "emotion": "greed",
+          "ending": "military_monopoly"
+        },
+        {
+          "id": "s5a2",
+          "label": "Từ chối - ủng hộ cạnh tranh công bằng",
+          "result_text": "✓ Bạn từ chối quyền lực tuyệt đối.",
+          "effects": { "trust": 35, "profit": -10, "power": -15 },
+          "emotion": "hope",
+          "ending": "refused_power"
+        },
+        {
+          "id": "s5a3",
+          "label": "Chỉ cung cấp cho các nước dân chủ - từ chối độc tài",
+          "result_text": "✓ Bạn chọn khách hàng đạo đức.",
+          "effects": { "trust": 20, "power": 10, "profit": 15 },
+          "emotion": "hope",
+          "ending": "ethical_military"
+        },
+        {
+          "id": "s5a4",
+          "label": "Yêu cầu gấp ba lần giá để tránh - hệ thống quá tồi tệ",
+          "result_text": "✓ Chính phủ từ chối giá cao. Cuộc chơi kết thúc.",
+          "effects": { "profit": -5, "power": 5 },
+          "ending": "priced_out",
+          "emotion": "despair"
+        }
+      ]
+    },
+    {
+      "id": "s5b",
+      "title": "Độc Quyền Im Lặng - Kiếm Tiền Mà Không Gây Chú Ý",
+      "narrative": "Bạn kiếm được lợi nhuận khổng lồ từ độc quyền mà chưa ai chú ý. Những người ngoài cuộc không biết.",
+      "mood": "corruption",
+      "choices": [
+        {
+          "id": "s5b1",
+          "label": "Tiếp tục - duy trì tính ẩn danh",
+          "result_text": "✓ Bạn kiếm tiền mà không ai biết.",
+          "effects": { "profit": 30, "power": 15 },
+          "ending": "silent_monopoly"
+        },
+        {
+          "id": "s5b2",
+          "label": "Tiết lộ công khai - bạn tự nguyện tách công ty",
+          "result_text": "✓ Bạn tin tưởng vào cạnh tranh.",
+          "effects": { "trust": 30, "power": -25, "profit": -15 },
+          "ending": "voluntary_breakup",
+          "emotion": "hope"
+        }
+      ]
+    },
+    {
+      "id": "s5c",
+      "title": "Độc Quyền Tắc Hiểu - Toàn Cầu Dòng Chảy Phế Liệu",
+      "narrative": "Bạn kiểm soát tất cả dòng chảy vật liệu tái chế trên thế giới. Hàng ngàn công ty phụ thuộc vào bạn.",
+      "mood": "corruption",
+      "choices": [
+        {
+          "id": "s5c1",
+          "label": "Nâng giá phế liệu độc quyền - tối đa hóa lợi nhuận",
+          "result_text": "✓ Bạn trích xuất lợi nhuận từ toàn cầu.",
+          "effects": { "profit": 40, "power": 35, "trust": -45 },
+          "ending": "circular_monopoly"
+        },
+        {
+          "id": "s5c2",
+          "label": "Giảm giá công bằng - hỗ trợ nền kinh tế tuần hoàn",
+          "result_text": "✓ Bạn hỗ trợ chuyển đổi toàn cầu.",
+          "effects": { "trust": 30, "profit": 15, "power": 10 },
+          "ending": "circular_champion"
+        }
+      ]
+    },
+    {
+      "id": "s5d",
+      "title": "Doanh Nhân Có Đạo Đức - Quyền Lực Từ Tin Tưởng",
+      "narrative": "Bạn là biểu tượng của doanh nhân có lương tâm. Nhưng bạn vẫn có độc quyền - chỉ là ẩn thôi.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "s5d1",
+          "label": "Duy trì mô hình - lợi nhuận từ tin tưởng",
+          "result_text": "✓ Lợi nhuận dài hạn từ danh tiếng.",
+          "effects": { "trust": 35, "profit": 20, "power": 15 },
+          "ending": "ethical_billionaire"
+        },
+        {
+          "id": "s5d2",
+          "label": "Từ bỏ tất cả và tạo lập quỹ từ thiện",
+          "result_text": "✓ Bạn chia sẻ tài sản.",
+          "effects": { "trust": 45, "profit": -50, "power": -30 },
+          "ending": "philanthropic_exit",
+          "emotion": "hope"
+        }
+      ]
+    },
+    {
+      "id": "s5e",
+      "title": "Hợp Tác Xã Toàn Cầu - Thay Đổi Hệ Thống",
+      "narrative": "Mô hình hợp tác xã của bạn thay đổi toàn bộ ngành công nghiệp thép toàn cầu.",
+      "mood": "temptation",
+      "choices": [
+        {
+          "id": "s5e1",
+          "label": "Duy trì hợp tác xã - lợi nhuận chia sẻ",
+          "result_text": "✓ Bạn chia sẻ lợi nhuận với tất cả.",
+          "effects": { "trust": 40, "profit": 15, "power": 20 },
+          "ending": "coop_utopia"
+        },
+        {
+          "id": "s5e2",
+          "label": "Bán công ty cho một tập đoàn - giàu sau một ngày",
+          "result_text": "✓ Bạn bán mô hình và biến mất.",
+          "effects": { "profit": 60, "power": -20, "trust": -20 },
+          "ending": "coop_sellout",
+          "emotion": "greed"
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "military_monopoly",
+      "title": "🏆 Đế Chế Quân Sự - Thép Chiến Tranh",
+      "text": "Công ty thép của bạn cung cấp vũ khí toàn cầu. Bạn kiêm vừa là nhà sản xuất vừa là lực lượng chính trị. Quyền lực hoàn toàn nhưng với máu bám trên tay.",
+      "conditions": { "min_profit": 90, "min_power": 85, "max_trust": 25 }
+    },
+    {
+      "id": "refused_power",
+      "title": "⚖️ Doanh Nhân Có Lương Tâm",
+      "text": "Bạn từ chối hợp đồng quân sự. Dù mất lợi nhuận, danh tiếng của bạn sáng lên - bạn chứng minh doanh nhân có thể từ chối quyền lực.",
+      "conditions": { "min_trust": 80, "max_profit": 50 }
+    },
+    {
+      "id": "ethical_military",
+      "title": "🛡️ Nhà Cung Cấp Đạo Đức",
+      "text": "Bạn chỉ cung cấp cho các nước dân chủ. Công ty nhỏ hơn nhưng bạn ngủ ngon.",
+      "conditions": { "min_trust": 70, "min_power": 40 }
+    },
+    {
+      "id": "priced_out",
+      "title": "😂 Chiến Lược Giá",
+      "text": "Bạn trả giá quá cao để tránh. Chính phủ tìm nhà cung cấp khác. Bạn không phải cung cấp vũ khí nhưng cũng không giàu.",
+      "conditions": { "min_power": 10, "max_profit": 30 }
+    },
+    {
+      "id": "silent_monopoly",
+      "title": "🤫 Độc Quyền Lặng Lẽ",
+      "text": "Bạn kiếm được lợi nhuận khổng lồ mà chưa ai chú ý. Độc quyền hoàn toàn nhưng ẩn danh.",
+      "conditions": { "min_profit": 85, "max_trust": 40 }
+    },
+    {
+      "id": "voluntary_breakup",
+      "title": "🌱 Phá Vỡ Tự Nguyện",
+      "text": "Bạn tự nguyện tách công ty. Bạn tin tưởng vào cạnh tranh. Mô hình lành mạnh hơn thế giới.",
+      "conditions": { "min_trust": 85, "max_power": 30 }
+    },
+    {
+      "id": "circular_monopoly",
+      "title": "♻️ Độc Quyền Tuần Hoàn",
+      "text": "Bạn kiểm soát toàn bộ dòng vật liệu tái chế toàn cầu. Lợi nhuận khổng lồ từ nền kinh tế tuần hoàn.",
+      "conditions": { "min_profit": 95, "min_power": 80 }
+    },
+    {
+      "id": "circular_champion",
+      "title": "🌍 Nhà Vô Địch Nền Kinh Tế Tuần Hoàn",
+      "text": "Bạn dẫn đầu chuyển đổi nền kinh tế tuần hoàn toàn cầu. Lợi nhuận ổn định, danh tiếng cao, hành tinh lành mạnh hơn.",
+      "conditions": { "min_trust": 75, "min_profit": 60 }
+    },
+    {
+      "id": "ethical_billionaire",
+      "title": "💰 Tỷ Phú Có Đạo Đức",
+      "text": "Bạn là biểu tượng của doanh nhân từ thiện. Giàu và được kính trọng. Mặc dù bạn vẫn có độc quyền ẩn, nhưng tiếng tốt nghe.",
+      "conditions": { "min_trust": 80, "min_profit": 70 }
+    },
+    {
+      "id": "philanthropic_exit",
+      "title": "🤝 Người Chia Sẻ",
+      "text": "Bạn từ bỏ tất cả tài sản và tạo lập quỹ từ thiện. Phần còn lại của cuộc đời bạn dành cho người khác.",
+      "conditions": { "min_trust": 90, "max_power": 10 }
+    },
+    {
+      "id": "coop_utopia",
+      "title": "✨ Hợp Tác Xã Lý Tưởng",
+      "text": "Mô hình hợp tác xã của bạn trở thành tiêu chuẩn toàn cầu. Nhân viên sở hữu, lợi nhuận chia sẻ, hệ thống công bằng.",
+      "conditions": { "min_trust": 85, "min_power": 60 }
+    },
+    {
+      "id": "coop_sellout",
+      "title": "💸 Người Bán Mô Hình",
+      "text": "Bạn bán mô hình hợp tác xã cho một tập đoàn lớn. Bạn giàu nhưng mô hình bị biến thành lợi nhuận.",
+      "conditions": { "min_profit": 80, "max_trust": 50 }
+    },
+    {
+      "id": "reform_hero",
+      "title": "⚖️ Anh Hùng Cải Cách",
+      "text": "Bạn tiết lộ bê bối Cartel. Bạn trở thành anh hùng cải cách. Ngành thép thay đổi.",
+      "conditions": { "min_trust": 80, "max_power": 30 }
+    },
+    {
+      "id": "bankruptcy",
+      "title": "💥 Phá Sản",
+      "text": "Tất cả sụp đổ. Không lợi nhuận, không quyền lực, không tin tưởng. Bạn thất bại.",
+      "conditions": { "max_profit": 25, "max_power": 35 }
+    },
+    {
+      "id": "prison_time",
+      "title": "⛓️ Tù Nhân",
+      "text": "Bạn bị kết tội hối lộ và lừa dối. Ngồi tù 5 năm.",
+      "conditions": { "max_trust": 10, "min_power": 30 }
+    },
+    {
+      "id": "corruption_downfall",
+      "title": "📉 Sụp Đổ Tham Nhũng",
+      "text": "Bê bối tham nhũng kéo bạn xuống. Bạn từ chức, công ty sụp đổ.",
+      "conditions": { "max_trust": 15, "max_profit": 40 }
+    },
+    {
+      "id": "liability_hell",
+      "title": "⚖️ Địa Ngục Trách Nhiệm",
+      "text": "Bạn thua kiện lớn. Hàng tỷ bồi thường. Công ty sập.",
+      "conditions": { "max_profit": 20, "max_trust": 30 }
+    },
+    {
+      "id": "labor_pariah",
+      "title": "🚫 Kẻ Bị Ghét - Bóc Lột Lao Động",
+      "text": "Bạn trở thành kẻ bị ghét vì bóc lột lao động. Tẩy chay toàn cầu.",
+      "conditions": { "max_trust": 20, "max_profit": 50 }
+    },
+    {
+      "id": "sanctioned_pariah",
+      "title": "🚫 Kẻ Bị Ghét - Lệnh Trừng Phạt",
+      "text": "Bạn bị cô lập bởi lệnh trừng phạt quốc tế vì hỗ trợ đảo chính.",
+      "conditions": { "max_trust": 15, "max_profit": 30 }
+    },
+    {
+      "id": "sold_to_pe",
+      "title": "💰 Thoát Khỏi Đạo Đức",
+      "text": "Bạn bán hợp tác xã cho quỹ tư nhân. Giàu nhanh nhưng mô hình bị phá hủy.",
+      "conditions": { "min_profit": 80, "max_trust": 30 }
+    }
+  ]
+}
