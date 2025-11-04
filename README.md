@@ -30,15 +30,15 @@ Mỗi lựa chọn mở ra một nhánh câu chuyện khác nhau, dẫn tới nh
 
 ### Trang Chủ
 
-<img src="./public/screenshots/Home.png" width="600">
+<img src="./public/screenshots/Home.png">
 
 ### Chọn ngành nghề
 
-<img src="./public/screenshots/Industry.png" width="600">
+<img src="./public/screenshots/Industry.png">
 
 ### Lựa Chọn Nhập Vai
 
-<img src="./public/screenshots/Choice.png" width="600">
+<img src="./public/screenshots/Choice.png">
 
 ---
 
