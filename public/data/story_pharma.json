@@ -2,14 +2,14 @@
   "schema_version": "1.1",
   "industry_id": "pharma",
   "name": "💊 Ngành Dược Phẩm - Độc Quyền Sáng Chế",
-  "intro": "Bạn vừa phát minh một loại thuốc đột phá. Bây giờ đến lúc lựa chọn: khoa học mở hay độc quyền độc lập?",
+  "intro": "Bạn vừa phát minh viên thuốc cứu được hàng triệu người. Bây giờ đến lúc lựa chọn: bạn sẽ cứu ai?",
   "initial_stats": { "profit": 40, "trust": 60, "power": 25 },
   "prologue": {
     "title": "Liều thuốc và lời thề",
     "paragraphs": [
-      "Trong phòng thí nghiệm lặng gió, bạn tìm ra hợp chất có thể đổi thay số phận hàng triệu người.",
-      "Bằng sáng chế mở ra cánh cửa quyền lực — nhưng cũng dựng lên bức tường giá.",
-      "Bạn chọn cứu người bằng mọi giá, hay cứu công ty bằng mọi giá? Lịch sử sẽ ghi tên bạn theo cách bạn chọn."
+      "Trong phòng lab lúc 3 giờ sáng, bạn nhìn chiếc ống nghiệm và biết: Đây là câu trả lời.",
+      "Hợp chất này có thể cứu sống hàng triệu người. Hoặc làm bạn giàu có tột bậc. Hoặc cả hai. Hoặc không cái nào.",
+      "Bằng sáng chế là con dao hai lưỡi: Bảo vệ đổi mới, nhưng cũng biến thuốc thành hàng xa xỉ. Bạn chọn gì?"
     ],
     "audio": [
       "/data/audio/pharma/p0.mp3",
@@ -21,7 +21,7 @@
     {
       "id": "p1",
       "title": "Khởi Nghiệp và Bằng Sáng Chế",
-      "narrative": "Lab của bạn phát minh ra một loại thuốc điều trị hiếm gặp. Bạn có thể đăng ký bằng sáng chế độc quyền hoặc chia sẻ công thức với đối tác.",
+      "narrative": "Lab của bạn phát minh ra một loại thuốc điều trị cho căn bệnh hiếm nhưng ẩn chứa nguy hiểm tiềm tàng. Bạn có thể đăng ký bằng sáng chế độc quyền hoặc chia sẻ công thức cho thế giới.",
       "mood": "temptation",
       "image_prompt": "Laboratory with researcher holding breakthrough medicine vial, scientific papers and patents scattered, hopeful lighting, medical aesthetic",
       "choices": [
@@ -33,7 +33,7 @@
           "emotion": "greed",
           "setFlags": ["PATENT_MONOPOLY"],
           "next": "p2a",
-          "learn": "Độc Quyền Sáng Chế: Bằng sáng chế tạo ra tình trạng khan hiếm nhân tạo, cho phép định giá độc quyền cho các hàng hóa thiết yếu."
+          "learn": "Bằng sáng chế tương đương với độc quyền hợp pháp. Ai cần thuốc đều phải mua từ bạn, với giá bạn đặt ra."
         },
         {
           "id": "p1c2",
@@ -48,7 +48,7 @@
         {
           "id": "p1c3",
           "label": "Bí mật bán bằng sáng chế cho công ty dược lớn",
-          "result_text": "✓ Bạn kiếm tiền lớn từ việc bán bằng sáng chế.",
+          "result_text": "✓ Bạn vui vẻ ra đi với túi đầy tiền. Họ sẽ lo phần còn lại.",
           "effects": { "profit": 35, "trust": -20, "power": 10 },
           "emotion": "greed",
           "setFlags": ["PATENT_SOLD"],
@@ -58,7 +58,7 @@
         {
           "id": "p1c4",
           "label": "Đăng ký bằng sáng chế nhưng cấp phép giá rẻ cho các nước nghèo",
-          "result_text": "✓ Bạn kiếm lợi nhuận nhưng cứu sống hàng triệu.",
+          "result_text": "✓ Bạn kiếm được lợi nhuận nhưng vẫn có thể cứu chữa nhiều người hơn.",
           "effects": { "trust": 15, "profit": 15, "power": 5 },
           "emotion": "ambition",
           "setFlags": ["TIERED_LICENSING"],
@@ -77,7 +77,7 @@
         {
           "id": "p2a1",
           "label": "Nâng giá thuốc độc quyền tối đa",
-          "result_text": "✓ Lợi nhuận khổng lồ nhưng hàng triệu không thể mua.",
+          "result_text": "✓ Lợi nhuận khổng lồ nhưng hàng triệu người không thể mua nổi.",
           "effects": { "profit": 35, "trust": -30, "power": 15 },
           "emotion": "greed",
           "setFlags": ["PRICE_GOUGING"],
@@ -98,7 +98,7 @@
         {
           "id": "p2a3",
           "label": "Hợp tác với chính phủ - tiếp cận công bằng giá",
-          "result_text": "✓ Chính phủ mua với giá hợp lý, bạn vẫn kiếm lợi nhuận.",
+          "result_text": "✓ Chính phủ mua với giá hợp lý, bạn vẫn kiếm lợi nhuận tương đối.",
           "effects": { "trust": 15, "profit": 20, "power": 10 },
           "emotion": "ambition",
           "setFlags": ["GOV_NEGOTIATED"],
@@ -108,32 +108,32 @@
         {
           "id": "p2a4",
           "label": "Mua bằng sáng chế cạnh tranh - loại bỏ đối thủ",
-          "result_text": "✓ Bạn mua tất cả bằng sáng chế tương tự.",
+          "result_text": "✓ Không còn ai sản xuất thuốc tương tự. Chỉ có bạn là duy nhất.",
           "effects": { "profit": 25, "trust": -15, "power": 20 },
           "emotion": "greed",
           "setFlags": ["PATENT_HOARDING"],
           "next": "p3d",
-          "learn": "Sàn Lăng Bằng Sáng Chế: Mua bằng sáng chế chỉ để tống tiễu."
+          "learn": "Sàn Lăng Bằng Sáng Chế: mua bằng sáng chế không phải để dùng, mà để ngăn người khác dùng."
         }
       ]
     },
     {
       "id": "p2a_scandal",
       "title": "Bê Bối Giá Thuốc",
-      "narrative": "Báo chí phơi bày bạn nâng giá 1000%. Bệnh nhân thiệt mạng vì không mua được. Phương truyền thông lớn.",
+      "narrative": "Báo chí phơi bày bạn nâng giá 1000%. Hình ảnh gia đình bệnh nhân khóc vì không mua nổi viral khắp cõi mạng. Bạn thành kẻ thù số 1 của công chúng . Giờ phải làm gì?",
       "mood": "collapse",
       "choices": [
         {
           "id": "p2a_scan1",
           "label": "Xin lỗi công khai - hạ giá ngay lập tức",
-          "result_text": "Bạn cứu vãn được tin tưởng nhưng lợi nhuận giảm.",
+          "result_text": "Cứu vãn được phần nào. Mất tiền nhưng giữ được công ty.",
           "effects": { "profit": -20, "trust": 25, "power": -10 },
           "next": "p3c",
           "emotion": "hope"
         },
         {
           "id": "p2a_scan2",
-          "label": "Chối bỏ trách nhiệm - đổ lỗi cho bệnh nhân",
+          "label": "Chối bỏ trách nhiệm - đổ lỗi cho thị trường",
           "result_text": "Bạn mất tất cả lòng tin. Tẩy chay toàn cầu.",
           "effects": { "profit": -40, "trust": -50, "power": -20 },
           "ending": "pharma_pariah",
@@ -143,15 +143,15 @@
     },
     {
       "id": "p2b",
-      "title": "Khoa Học Mở - Cạnh Tranh Công Bằng",
-      "narrative": "Nhiều công ty sản xuất thuốc của bạn. Giá cạnh tranh nhưng bạn vẫn kiếm lợi nhuận. Thế giới cảm ơn.",
+      "title": "Khoa Học Mở - Cạnh Tranh Lành Mạnh",
+      "narrative": "Nhiều công ty sản xuất thuốc của bạn. Hàng triệu người tiếp cận được. Bạn vẫn kiếm lời từ khối lượng và danh tiếng. Nhưng sự cám dỗ vẫn còn đó.",
       "mood": "temptation",
       "image_prompt": "Multiple pharmaceutical companies in competition, affordable medicine reaching diverse populations, hopeful and healthy community imagery",
       "choices": [
         {
           "id": "p2b1",
           "label": "Duy trì khoa học mở - sâu hơn vào nghiên cứu",
-          "result_text": "✓ Bạn trở thành nhà lãnh đạo đổi mới.",
+          "result_text": "✓ Bạn trở thành biểu tượng của y học nhân văn.",
           "effects": { "trust": 25, "profit": 15, "power": 10 },
           "emotion": "hope",
           "setFlags": ["OPEN_RESEARCH"],
@@ -161,7 +161,7 @@
         {
           "id": "p2b2",
           "label": "Nâng giá từ từ - chiếm lĩnh thị trường",
-          "result_text": "✓ Bạn bắt đầu tăng giá khi đối thủ rơi",
+          "result_text": "✓ Bạn bắt đầu tăng giá khi đối thủ sẩy chân",
           "effects": { "profit": 20, "trust": -20, "power": 15 },
           "emotion": "greed",
           "setFlags": ["GRADUAL_MONOPOLY"],
@@ -171,7 +171,7 @@
         {
           "id": "p2b3",
           "label": "Liên minh với các công ty khác - cartel giá",
-          "result_text": "✓ Bạn kết hợp với đối thủ kiểm soát giá.",
+          "result_text": "✓ Bạn kết hợp với đối thủ kiểm soát giá. Cùng nhau kiếm lời.",
           "effects": { "profit": 30, "trust": -30, "power": 20 },
           "emotion": "greed",
           "setFlags": ["PRICE_CARTEL"],
@@ -194,13 +194,13 @@
     {
       "id": "p2b_cartel_caught",
       "title": "Cartel Bị Phát Hiện",
-      "narrative": "Cơ quan quản lý bắt được thỏa thuận giá. Bạn đối mặt với phạt tỷ.",
+      "narrative": "FBI nắm được thông tin về cuộc thỏa thuận giá giữa các CEO. Bạn đối mặt án phạt tỷ đô và có thể vào tù. Scandal làm rung chuyển ngành y dược.",
       "mood": "collapse",
       "choices": [
         {
           "id": "p2b_cart1",
-          "label": "Chấp nhận phạt",
-          "result_text": "Bạn trả bồi thường nhưng thoát khỏi tù.",
+          "label": "Nhận tội, nộp phạt, cam kết sửa sai",
+          "result_text": "Bạn trả bồi thường nhưng thoát khỏi tội đi tù.",
           "effects": { "profit": -30, "trust": -15, "power": -15 },
           "next": "p3c",
           "emotion": "despair"
@@ -216,8 +216,8 @@
       "choices": [
         {
           "id": "p2c1",
-          "label": "Tuân theo - tối đa hóa lợi nhuận",
-          "result_text": "✓ Bạn kiếm tiền khổng lồ nhưng mất tâm lý.",
+          "label": "Tuân theo - tối đa hóa lợi nhuận như họ muốn",
+          "result_text": "✓ Tiền về ầm ầm. Nhưng tối nào bạn cũng uống rượu vì mất ngủ.",
           "effects": { "profit": 40, "trust": -30, "power": 20 },
           "emotion": "greed",
           "setFlags": ["CORPORATE_CONTROLLED"],
@@ -227,7 +227,7 @@
         {
           "id": "p2c2",
           "label": "Cản trở tối đa hóa lợi nhuận - đạo đức",
-          "result_text": "✓ Bạn nổi loạn từ bên trong.",
+          "result_text": "✓ Đơn độc nhưng còn giữ được lương tâm.",
           "effects": { "trust": 10, "profit": 10, "power": -5 },
           "emotion": "hope",
           "setFlags": ["INTERNAL_RESISTANCE"],
@@ -237,7 +237,7 @@
         {
           "id": "p2c3",
           "label": "Xây dựng bộ phận nghiên cứu độc lập bên dưới",
-          "result_text": "✓ Bạn giữ bộ phận cũ để đổi mới.",
+          "result_text": "✓ Bạn giữ bộ phận cũ để đổi mới trong âm thầm.",
           "effects": { "trust": 15, "profit": 20, "power": 10 },
           "emotion": "ambition",
           "setFlags": ["SKUNKWORKS"],
@@ -308,7 +308,7 @@
     {
       "id": "p3a",
       "title": "Tư Bản Tài Chính Thống Trị",
-      "narrative": "Các quỹ tư nhân muốn cổ phần. Họ hứa kiếm tiền tỷ nếu bạn tối đa hóa lợi nhuận.",
+      "narrative": "Các quỹ tư nhân muốn cổ phần. Họ hứa chia lợi nhuận đến số tiền tỷ nếu bạn tối đa hóa lợi nhuận.",
       "mood": "corruption",
       "image_prompt": "Wall Street investment firm meeting with pharma executive, contract signing, graphs showing quarterly earnings targets, high-stakes financial atmosphere",
       "choices": [
@@ -456,49 +456,49 @@
     },
     {
       "id": "p3d",
-      "title": "Tư Bản Hợp Tác - Hạn Chế Độc Quyền",
-      "narrative": "Bạn hợp tác với các tổ chức quốc tế - giảm độc quyền nhưng vẫn kiếm lợi nhuận.",
+      "title": "Hợp Tác Quốc Tế",
+      "narrative": "WHO, Gates Foundation, Bác sĩ không biên giới gõ cửa. Họ muốn hợp tác đưa thuốc đến nơi nghèo nhất. Ít lời hơn, nhưng nhiều ý nghĩa hơn.",
       "mood": "temptation",
       "choices": [
         {
           "id": "p3d1",
-          "label": "Hợp tác với LHQ - tiêu chuẩn giá công bằng",
-          "result_text": "✓ Bạn ký thỏa thuận với LHQ.",
+          "label": "Ký với WHO - giá cố định toàn cầu",
+          "result_text": "✓ Được WHO công nhận. Giá công bằng khắp thế giới.",
           "effects": { "trust": 25, "profit": 15, "power": 10 },
           "emotion": "hope",
           "setFlags": ["UN_AGREEMENT"],
           "next": "p4d",
-          "learn": "Hợp Tác LHQ: Tiêu chuẩn giá quốc tế."
+          "learn": "WHO có danh sách thuốc thiết yếu với giá được kiểm soát. Và thuốc của bạn đã vào danh sách đó."
         },
         {
           "id": "p3d2",
-          "label": "Hợp tác với WHO - sức khỏe toàn cầu",
-          "result_text": "✓ Bạn hợp tác với WHO về sức khỏe toàn cầu.",
+          "label": "Hợp tác Bác sĩ không biên giới - đưa thuốc đến vùng chiến tranh",
+          "result_text": "✓ Họ mang thuốc của bạn đến Syria, Yemen, Sudan...",
           "effects": { "trust": 20, "profit": 12, "power": 8 },
           "emotion": "hope",
           "setFlags": ["WHO_PARTNERSHIP"],
           "next": "p4d",
-          "learn": "Hợp Tác WHO: Sức khỏe toàn cầu."
+          "learn": "Chương trình nhân đạo = thuốc miễn phí cho người trong vùng khủng hoảng."
         },
         {
           "id": "p3d3",
-          "label": "Thành lập hợp tác xã với các công ty dược khác",
-          "result_text": "✓ Bạn tạo cartel từ thiện thay vì tham lam.",
+          "label": "Chia sẻ bằng sáng chế với nhiều công ty",
+          "result_text": "✓ 10 công ty cùng sản xuất. Giá giảm mạnh.",
           "effects": { "trust": 20, "profit": 10, "power": 5 },
           "emotion": "hope",
           "setFlags": ["PHARMA_COOP"],
           "next": "p4d",
-          "learn": "Hợp Tác Xã Dược: Cartel từ thiện."
+          "learn": "Gộp bằng sáng chế = ai cũng được sản xuất. Giống chia sẻ công thức nấu ăn."
         },
         {
           "id": "p3d4",
-          "label": "Tìm giải pháp tư bản xã hội - đầu tư có tác động",
-          "result_text": "✓ Bạn tìm nhà đầu tư có mục tiêu xã hội.",
+          "label": "Nhận tiền từ nhà đầu tư 'có tâm'",
+          "result_text": "✓ Họ chấp nhận lãi thấp, miễn thuốc đến được người nghèo.",
           "effects": { "trust": 18, "profit": 15, "power": 8 },
           "emotion": "hope",
           "setFlags": ["IMPACT_INVESTMENT"],
           "next": "p4d",
-          "learn": "Đầu Tư Có Tác Động: Vốn xã hội."
+          "learn": "Đầu tư xã hội = cho vay với điều kiện: phải giúp được nhiều người."
         }
       ]
     },

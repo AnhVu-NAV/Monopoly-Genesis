@@ -3,35 +3,35 @@
     {
       "id": "steel",
       "name": "🏭 Công Nghiệp Thép",
-      "intro": "Công nghiệp nặng cổ điển - tích tụ tư bản, hình thành tổ chức độc quyền",
+      "intro": "Nền tảng của công nghiệp nặng – nơi mọi đế chế tư bản khởi đầu. Bạn sẽ tích lũy vốn, xây dựng nhà máy, và có thể từng bước tạo ra những tổ chức độc quyền khổng lồ.",
       "picture": "data/img/steel.png",
       "storyPath": "/data/story_steel.json"
     },
     {
       "id": "pharma",
       "name": "💊 Ngành Dược Phẩm",
-      "intro": "Độc quyền sáng chế, tư bản tài chính, R&D cao",
+      "intro": "Sức mạnh đến từ kiến thức chuyên môn và bằng sáng chế. Bạn đầu tư vào nghiên cứu, chi phối giá thuốc, và xây dựng một đế chế tài chính dựa trên R&D và quyền sở hữu trí tuệ.",
       "picture": "data/img/pharma.png",
       "storyPath": "/data/story_pharma.json"
     },
     {
       "id": "tech",
       "name": "📱 Big Tech - Công Nghệ Lớn",
-      "intro": "Độc quyền dữ liệu, hiệu ứng mạng, thống trị nền tảng",
+      "intro": "Dữ liệu là dầu mỏ mới. Bạn xây dựng nền tảng và thu hút người dùng, tạo ra hiệu ứng mạnh mẽ trên không gian mạng và các diễn đàn công nghệ – rồi dần dần gây ảnh hướng lớn tới cách thế giới giao tiếp, làm việc, tiêu dùng.",
       "picture": "data/img/tech.png",
       "storyPath": "/data/story_tech.json"
     },
     {
       "id": "diversify",
-      "name": "🌍 Đa Ngành – Siêu Tập Đoàn",
-      "intro": "Bạn không chỉ muốn làm 1 ngành. Bạn muốn sở hữu nhiều ngành cùng lúc. Mục tiêu cuối cùng: dựng nên 1 siêu tập đoàn đa lõi với quyền lực vượt biên giới quốc gia.",
+      "name": "🌍 Doanh Nghiệp Đa Ngành – Siêu Tập Đoàn",
+      "intro": "Bạn không chỉ dừng lại ở một lĩnh vực, mở rộng tầm nhìn của bản thân. Bạn muốn vươn ra mọi ngành nghề – từ thép, dược đến công nghệ và logistics. Mục tiêu cuối cùng bạn nhắm đến là xây dựng một siêu tập đoàn đa lõi, có tầm ảnh hưởng vượt ra khỏi biên giới một quốc gia.",
       "picture": "data/img/diversify.png",
       "storyPath": "/data/story_diversify.json"
     },
     {
       "id": "supplychain",
       "name": "🔗 Chuỗi Cung Ứng Toàn Cầu",
-      "intro": "Bạn không chỉ tối ưu. Bạn muốn CHI PHỐI luồng hàng hóa thế giới. Container – vận tải – kho – port – customs. Mục tiêu cuối cùng: kiểm soát CHUỖI GIÁ TRỊ TOÀN CẦU.",
+      "intro": "Không chỉ tối ưu hóa – bạn muốn CHI PHỐI luồng hàng hóa toàn cầu. Container, vận tải, kho bãi, cảng biển, hải quan – từng mắt xích trong chuỗi giá trị đều nằm trong tầm kiểm soát của bạn.",
       "picture": "data/img/supplychain.png",
       "storyPath": "/data/story_supplychain.json"
     }
