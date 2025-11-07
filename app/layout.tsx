@@ -10,6 +10,8 @@ import '@fontsource/be-vietnam-pro/400.css';
 import '@fontsource/be-vietnam-pro/500.css';
 import '@fontsource/be-vietnam-pro/600.css';
 import '@fontsource/be-vietnam-pro/700.css';
+import Clarity from "@/components/clarity"
+import ClarityRoute from "@/components/clarity-route"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -59,7 +61,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             `}
           </Script>
         )}
-
+        <Clarity />
+        <ClarityRoute />
         {/* Vercel Analytics (tuỳ chọn) */}
         <VercelAnalytics />
       </body>
