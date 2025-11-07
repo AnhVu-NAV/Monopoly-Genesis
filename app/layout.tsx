@@ -12,6 +12,7 @@ import '@fontsource/be-vietnam-pro/600.css';
 import '@fontsource/be-vietnam-pro/700.css';
 import Clarity from "@/components/clarity"
 import ClarityRoute from "@/components/clarity-route"
+import { Suspense } from "react"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -62,7 +63,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </Script>
         )}
         <Clarity />
-        <ClarityRoute />
+        <Suspense fallback={<div className="p-8">Đang tải…</div>}>
+          <ClarityRoute />
+        </Suspense>
         {/* Vercel Analytics (tuỳ chọn) */}
         <VercelAnalytics />
       </body>
