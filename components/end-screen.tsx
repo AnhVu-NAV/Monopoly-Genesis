@@ -1,6 +1,7 @@
 "use client"
 
 import type { Ending } from "@/lib/types"
+import { useEffect } from "react";
 
 interface EndScreenProps {
   ending: Ending
@@ -13,6 +14,24 @@ interface EndScreenProps {
 }
 
 export default function EndScreen({ ending, stats, onPlayAgain }: EndScreenProps) {
+
+
+  useEffect(() => {
+    const id = ending?.id;
+    if (!id) return;
+
+    // Clarity
+    if (typeof window !== "undefined" && typeof window.clarity === "function") {
+      window.clarity("event", `ending_${id}`);
+    }
+
+    // GA4
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "ending_result", {
+        ending_id: id,
+      });
+    }
+  }, [ending?.id]);
 
   const playerName =
     typeof window !== "undefined" ? localStorage.getItem("playerName") : ""
